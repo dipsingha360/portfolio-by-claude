@@ -111,7 +111,7 @@ async function sendEmail({ name, email, message }: Message): Promise<boolean | n
   const safeName = name.replace(/[\r\n]+/g, " ");
   try {
     const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from,
       to,
       replyTo: email,
@@ -123,6 +123,7 @@ async function sendEmail({ name, email, message }: Message): Promise<boolean | n
       console.error("[contact] Resend rejected the message:", error.name, error.message);
       return false;
     }
+    console.info("[contact] Email sent, Resend id:", data?.id);
     return true;
   } catch (err) {
     console.error("[contact] Sending email failed:", err);
