@@ -146,15 +146,34 @@ export const faqs = [
   { q: "What do you need from me to get started?", a: "" },
 ];
 
-export const articles = [
+export const blogFilters = [
+  "All",
+  "Product Design",
+  "Design Systems",
+  "UX Writing",
+  "Leadership",
+  "Career",
+] as const;
+export type BlogFilter = (typeof blogFilters)[number];
+
+export const articles: {
+  slug: string;
+  date: string;
+  readTime: string;
+  title: string;
+  summary: string;
+  image: string;
+  category: Exclude<BlogFilter, "All">;
+}[] = [
   {
     slug: "graphic-to-product-design",
     date: "Nov 12, 2026",
-    readTime: "5 min read",
+    readTime: "6 min read",
     title: "From graphic design to product design: what changed for me",
     summary:
       "The skills that carried over, the ones I had to learn from scratch, and what I’d tell anyone making the same switch.",
     image: "/images/home/article-1.png",
+    category: "Career",
   },
   {
     slug: "design-system-from-scratch",
@@ -164,6 +183,7 @@ export const articles = [
     summary:
       "How I planned, named and documented components so our team could design faster every day.",
     image: "/images/home/article-2.png",
+    category: "Design Systems",
   },
   {
     slug: "leading-a-design-team",
@@ -173,5 +193,46 @@ export const articles = [
     summary:
       "Giving feedback, sharing work fairly and keeping quality high without becoming a bottleneck.",
     image: "/images/home/article-3.png",
+    category: "Leadership",
+  },
+  {
+    slug: "ux-copy-as-a-designer",
+    date: "Sep 24, 2026",
+    readTime: "4 min read",
+    title: "Writing UX copy as a designer",
+    summary:
+      "The simple rules I use for buttons, errors and empty states so screens are easier to use.",
+    image: "/images/home/article-1.png",
+    category: "UX Writing",
+  },
+  {
+    slug: "usability-test-in-one-afternoon",
+    date: "Sep 10, 2026",
+    readTime: "6 min read",
+    title: "How I run a usability test in one afternoon",
+    summary:
+      "A light way to test with 5 people, find the biggest problems and fix them before launch.",
+    image: "/images/home/article-2.png",
+    category: "Product Design",
+  },
+  {
+    slug: "designing-ed-tech-for-test-takers",
+    date: "Aug 27, 2026",
+    readTime: "5 min read",
+    title: "Designing ed-tech apps for test takers",
+    summary:
+      "What I learned designing for students who are stressed, short on time and mostly on their phones.",
+    image: "/images/home/article-3.png",
+    category: "Product Design",
+  },
+  {
+    slug: "naming-components",
+    date: "Aug 12, 2026",
+    readTime: "4 min read",
+    title: "Naming components so your team can find them",
+    summary:
+      "A naming system for Figma components that designers and developers both understand.",
+    image: "/images/home/article-1.png",
+    category: "Design Systems",
   },
 ];

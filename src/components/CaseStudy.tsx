@@ -43,9 +43,17 @@ export function TwoColumn({
 }
 
 /** Figma: Molecules / Meta item. */
-export function MetaItem({ label, value }: { label: string; value: string }) {
+export function MetaItem({
+  label,
+  value,
+  className = "min-w-0 flex-1",
+}: {
+  label: string;
+  value: string;
+  className?: string;
+}) {
   return (
-    <div className="flex min-w-0 flex-1 flex-col gap-1">
+    <div className={`flex flex-col gap-1 ${className}`}>
       <dt className="text-caption text-text-secondary">{label}</dt>
       <dd className="text-label">{value}</dd>
     </div>
@@ -112,9 +120,21 @@ export function ProcessRow({
 }
 
 /** Figma: Atoms / Badge (static label). */
-export function Badge({ children }: { children: ReactNode }) {
+export function Badge({
+  children,
+  tone = "neutral",
+}: {
+  children: ReactNode;
+  tone?: "neutral" | "primary";
+}) {
   return (
-    <span className="text-caption rounded-full border border-surface-subtle bg-surface px-3 py-2">
+    <span
+      className={`text-caption rounded-full border px-3 py-2 ${
+        tone === "primary"
+          ? "border-action-primary bg-action-primary text-text-inverse"
+          : "border-surface-subtle bg-surface"
+      }`}
+    >
       {children}
     </span>
   );

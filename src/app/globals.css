@@ -66,6 +66,11 @@
   line-height: 36px;
   font-weight: 600;
 }
+@utility text-body-large {
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 400;
+}
 @utility text-label {
   font-size: 18px;
   line-height: 28px;

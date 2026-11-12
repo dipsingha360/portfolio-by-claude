@@ -118,7 +118,7 @@ export default function Home() {
           intro="Short reads on product design, design systems and leading a design team."
         />
         <div className="flex w-full flex-col gap-10 md:flex-row md:gap-6">
-          {articles.map((a) => (
+          {articles.slice(0, 3).map((a) => (
             <ArticleCard key={a.slug} {...a} />
           ))}
         </div>
