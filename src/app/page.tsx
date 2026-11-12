@@ -6,15 +6,26 @@ import { ReviewCard, VideoTestimonial } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { articles, faqs, projects, reviews, services } from "@/lib/data";
 
-const section = "flex flex-col items-center gap-12 px-6 py-section lg:px-gutter-lg";
+// One content width for the whole page. The hero and every section share the
+// same side padding (24px mobile, 132px from lg) and the same centered
+// 1184px column, so their left and right edges always line up.
+const container = "mx-auto w-full max-w-[1184px]";
+
+function Section({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="px-6 py-section lg:px-gutter-lg">
+      <div className={`${container} flex flex-col items-center gap-12`}>{children}</div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="flex justify-center px-6 py-16 lg:px-gutter-lg">
-        <div className="flex w-full max-w-[1184px] flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
-          <div className="flex w-full flex-col gap-6 lg:w-[560px]">
+      <section className="px-6 py-16 lg:px-gutter-lg">
+        <div className={`${container} flex flex-col items-start justify-between gap-12 xl:flex-row xl:items-center`}>
+          <div className="flex w-full flex-col gap-6 xl:w-[560px]">
             <h1 className="text-display text-[56px] leading-[64px] md:text-[112px] md:leading-[120px]">
               Dip Singha
             </h1>
@@ -42,7 +53,7 @@ export default function Home() {
               alt="Portrait of Dip Singha"
               fill
               priority
-              sizes="(min-width: 1024px) 560px, 100vw"
+              sizes="(min-width: 1280px) 560px, 100vw"
               className="object-cover"
             />
           </div>
@@ -50,7 +61,7 @@ export default function Home() {
       </section>
 
       {/* Selected projects */}
-      <section className={section}>
+      <Section>
         <SectionHeading
           title="Selected projects"
           intro="A few projects I’m proud of, from mobile apps to design systems and brand work. Each one shows how I think, not just how it looks."
@@ -63,10 +74,10 @@ export default function Home() {
         <Button variant="secondary" href="/projects">
           See all projects
         </Button>
-      </section>
+      </Section>
 
       {/* Services */}
-      <section className={section}>
+      <Section>
         <SectionHeading
           title="How I can help"
           intro="Whether you’re hiring for your team or need a hand on a project, here’s where I add the most value."
@@ -79,10 +90,10 @@ export default function Home() {
         <Button variant="secondary" href="/services">
           View all services
         </Button>
-      </section>
+      </Section>
 
       {/* Client reviews */}
-      <section className={section}>
+      <Section>
         <SectionHeading
           title="Kind words"
           intro="What clients and teammates say about working with me."
@@ -100,19 +111,19 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
       {/* FAQ */}
-      <section className={section}>
+      <Section>
         <SectionHeading
           title="Questions I get asked"
           intro="Quick answers about how I work. Can’t find yours? Just send me a message."
         />
         <Faq items={faqs} />
-      </section>
+      </Section>
 
       {/* Blog */}
-      <section className={section}>
+      <Section>
         <SectionHeading
           title="Things I’ve learned"
           intro="Short reads on product design, design systems and leading a design team."
@@ -125,7 +136,7 @@ export default function Home() {
         <Button variant="secondary" href="/blog">
           Read all articles
         </Button>
-      </section>
+      </Section>
     </>
   );
 }
