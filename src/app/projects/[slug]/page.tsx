@@ -8,7 +8,7 @@ import { ProjectCard } from "@/components/Cards";
 import { ReviewCard } from "@/components/Reviews";
 import { SectionHeading } from "@/components/SectionHeading";
 import { caseStudy as c } from "@/lib/case-study";
-import { projects } from "@/lib/data";
+import { primaryDetail, projects } from "@/lib/data";
 
 // The Figma prototype designs one project detail (OneIELTS) and every project
 // card links to it, so each project slug renders that template.
@@ -19,7 +19,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   if (!projects.some((p) => p.slug === slug)) return {};
-  return { title: c.title, description: c.lead };
+  return {
+    title: c.title,
+    description: c.lead,
+    alternates: { canonical: `/projects/${primaryDetail.project}` },
+  };
 }
 
 export default async function ProjectDetailPage({ params }: PageProps<"/projects/[slug]">) {

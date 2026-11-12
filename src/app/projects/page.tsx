@@ -13,6 +13,7 @@ export default function ProjectsPage() {
     <div className="flex flex-col gap-8 pt-16 md:pt-24">
       <SectionHeading
         wide
+        page
         title="Things I’ve designed"
         intro="Product design, design systems and brand work. Pick a project to see the problem, the process and what changed."
       />

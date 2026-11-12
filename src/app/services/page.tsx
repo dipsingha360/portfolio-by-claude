@@ -44,7 +44,8 @@ export default function ServicesPage() {
       <div className="pb-8 pt-16 md:pb-12 md:pt-24">
         <SectionHeading
           wide
-          title="What I can do for you"
+          page
+        title="What I can do for you"
           intro="Whether you need a designer on your team or a hand with one project, here’s what I bring and what you get."
         />
       </div>
@@ -52,7 +53,7 @@ export default function ServicesPage() {
       <div className="mx-auto flex w-full max-w-[1176px] flex-col gap-6 px-6 pb-16 md:pb-24 xl:px-0">
         {services.map((s, i) => (
           <div key={s.slug} className="flex flex-col gap-4">
-            <ServiceItem index={i} {...s} />
+            <ServiceItem index={i} level={2} {...s} />
             <div className="flex flex-wrap items-center gap-2 md:pl-6">
               <p className="text-label">What you get:</p>
               {s.get.map((g) => (

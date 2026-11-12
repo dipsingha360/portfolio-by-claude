@@ -7,7 +7,7 @@ import { Badge, Band, MetaItem } from "@/components/CaseStudy";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { blogDetail as d } from "@/lib/blog-detail";
-import { articles } from "@/lib/data";
+import { articles, primaryDetail } from "@/lib/data";
 
 // The Figma prototype designs one article page and every article card links
 // to it, so each article slug renders that template.
@@ -18,7 +18,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   if (!articles.some((a) => a.slug === slug)) return {};
-  return { title: d.title, description: d.subtitle };
+  return {
+    title: d.title,
+    description: d.subtitle,
+    alternates: { canonical: `/blog/${primaryDetail.article}` },
+  };
 }
 
 export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]">) {

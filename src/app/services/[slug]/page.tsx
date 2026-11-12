@@ -7,7 +7,7 @@ import { Band, ProcessRow, ProcessStep } from "@/components/CaseStudy";
 import { ContactButton } from "@/components/ContactButton";
 import { Faq } from "@/components/Faq";
 import { SectionHeading } from "@/components/SectionHeading";
-import { services } from "@/lib/data";
+import { primaryDetail, services } from "@/lib/data";
 import { serviceDetail as d } from "@/lib/service-detail";
 
 // The Figma prototype designs one service detail (Product Design) and every
@@ -19,7 +19,11 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   if (!services.some((s) => s.slug === slug)) return {};
-  return { title: d.title, description: d.lead };
+  return {
+    title: d.title,
+    description: d.lead,
+    alternates: { canonical: `/services/${primaryDetail.service}` },
+  };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps<"/services/[slug]">) {

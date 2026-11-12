@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -6,6 +7,11 @@ import { ReviewCard, VideoTestimonial } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { articles, faqs, projects, reviews, services } from "@/lib/data";
 import { bandPadding, container } from "@/lib/layout";
+
+export const metadata: Metadata = {
+  description:
+    "Dip Singha is a product designer based in Bangladesh, working worldwide. 3 years in product design, a background in graphic design, leading a team of 4 designers.",
+};
 
 // The hero and every section share the same band padding and centered
 // content column (see src/lib/layout.ts), so their edges always line up.

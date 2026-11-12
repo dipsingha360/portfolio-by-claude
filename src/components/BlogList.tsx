@@ -56,7 +56,7 @@ export function BlogList() {
 
       <div className="mx-auto grid w-full max-w-[1176px] grid-cols-1 gap-x-6 gap-y-10 px-6 pb-8 pt-12 md:grid-cols-3 md:gap-y-14 xl:px-0">
         {visible.map((a) => (
-          <ArticleCard key={a.slug} {...a} />
+          <ArticleCard key={a.slug} level={2} {...a} />
         ))}
       </div>
 

@@ -3,16 +3,20 @@ import Link from "next/link";
 
 /** Figma: Molecules / Project card. */
 export function ProjectCard({
+  level = 3,
   slug,
   title,
   tags,
   image,
 }: {
+  /** Heading level of the title: 2 on list pages, 3 inside a section. */
+  level?: 2 | 3;
   slug: string;
   title: string;
   tags: string;
   image: string;
 }) {
+  const Heading = level === 2 ? "h2" : "h3";
   return (
     <Link
       href={`/projects/${slug}`}
@@ -28,7 +32,7 @@ export function ProjectCard({
         />
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="text-h3">{title}</h3>
+        <Heading className="text-h3">{title}</Heading>
         <p className="text-caption text-text-secondary">{tags}</p>
         <span className="text-label transition-opacity md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
           View case study &nbsp;→
@@ -40,18 +44,22 @@ export function ProjectCard({
 
 /** Figma: Molecules / Service item. */
 export function ServiceItem({
+  level = 3,
   index,
   slug,
   title,
   summary,
   image,
 }: {
+  /** Heading level of the title: 2 on list pages, 3 inside a section. */
+  level?: 2 | 3;
   index: number;
   slug: string;
   title: string;
   summary: string;
   image: string;
 }) {
+  const Heading = level === 2 ? "h2" : "h3";
   return (
     <Link
       href={`/services/${slug}`}
@@ -59,7 +67,7 @@ export function ServiceItem({
     >
       <div className="flex min-w-0 flex-1 flex-col gap-3">
         <span className="text-caption">{String(index + 1).padStart(2, "0")}</span>
-        <h3 className="text-h3">{title}</h3>
+        <Heading className="text-h3">{title}</Heading>
         <p className="text-body text-text-secondary">{summary}</p>
         <span className="text-label opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
           View service &nbsp;→
@@ -80,6 +88,7 @@ export function ServiceItem({
 
 /** Figma: Molecules / Article card. */
 export function ArticleCard({
+  level = 3,
   slug,
   date,
   readTime,
@@ -87,6 +96,8 @@ export function ArticleCard({
   summary,
   image,
 }: {
+  /** Heading level of the title: 2 on list pages, 3 inside a section. */
+  level?: 2 | 3;
   slug: string;
   date: string;
   readTime: string;
@@ -94,6 +105,7 @@ export function ArticleCard({
   summary: string;
   image: string;
 }) {
+  const Heading = level === 2 ? "h2" : "h3";
   return (
     <Link href={`/blog/${slug}`} className="group flex min-w-0 flex-1 flex-col gap-4">
       <div className="relative h-[240px] w-full overflow-hidden">
@@ -109,7 +121,7 @@ export function ArticleCard({
         <p className="text-caption whitespace-pre text-text-secondary">
           {date} &nbsp;·&nbsp; {readTime}
         </p>
-        <h3 className="text-h3">{title}</h3>
+        <Heading className="text-h3">{title}</Heading>
         <p className="text-body text-text-secondary">{summary}</p>
         <span className="text-label opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
           Read article &nbsp;→

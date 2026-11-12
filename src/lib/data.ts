@@ -18,6 +18,16 @@ export const site = {
   ],
 };
 
+// The prototype designs ONE detail page per type, and every card opens it, so
+// all project/service/article addresses currently show the same content. Search
+// engines are pointed at these main pages (canonical links and the sitemap)
+// until each item has its own content.
+export const primaryDetail = {
+  project: "oneielts",
+  service: "product-design",
+  article: "graphic-to-product-design",
+} as const;
+
 export const projectFilters = [
   "All",
   "Product Design",
