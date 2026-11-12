@@ -5,15 +5,13 @@ import { ArticleCard, ProjectCard, ServiceItem } from "@/components/Cards";
 import { ReviewCard, VideoTestimonial } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { articles, faqs, projects, reviews, services } from "@/lib/data";
+import { bandPadding, container } from "@/lib/layout";
 
-// One content width for the whole page. The hero and every section share the
-// same side padding (24px mobile, 132px from lg) and the same centered
-// 1184px column, so their left and right edges always line up.
-const container = "mx-auto w-full max-w-[1184px]";
-
+// The hero and every section share the same band padding and centered
+// content column (see src/lib/layout.ts), so their edges always line up.
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="px-6 py-section lg:px-gutter-lg">
+    <section className={`py-section ${bandPadding}`}>
       <div className={`${container} flex flex-col items-center gap-12`}>{children}</div>
     </section>
   );
@@ -23,7 +21,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="px-6 py-16 lg:px-gutter-lg">
+      <section className={`py-16 ${bandPadding}`}>
         <div className={`${container} flex flex-col items-start justify-between gap-12 xl:flex-row xl:items-center`}>
           <div className="flex w-full flex-col gap-6 xl:w-[560px]">
             <h1 className="text-display text-[56px] leading-[64px] md:text-[112px] md:leading-[120px]">
