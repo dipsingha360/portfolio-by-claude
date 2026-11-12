@@ -6,12 +6,12 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useRef,
   useState,
   type FormEvent,
   type ReactNode,
 } from "react";
+import { sendContact, type ContactResult } from "@/app/actions/contact";
 import { site } from "@/lib/data";
 
 type Step = "form" | "sending" | "sent";
@@ -22,7 +22,11 @@ export function useContact() {
   return useContext(ContactContext);
 }
 
-const SENDING_MS = 1500; // Figma: Contact sending -> sent after 1.5s
+// Keep "Sending…" on screen at least this long so the state is readable.
+const MIN_SENDING_MS = 600;
+const FAILURE = "Sorry, your message couldn’t be sent. Please try again in a moment.";
+
+type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
 
 const field =
   "min-h-12 w-full rounded-control border border-border-control bg-background px-4 py-3 text-body placeholder:text-text-secondary";
@@ -37,9 +41,13 @@ export function ContactProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [step, setStep] = useState<Step>("form");
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [banner, setBanner] = useState<string | null>(null);
 
   const open = useCallback(() => {
     setStep("form");
+    setErrors({});
+    setBanner(null);
     dialogRef.current?.showModal();
   }, []);
 
@@ -51,17 +59,32 @@ export function ContactProvider({ children }: { children: ReactNode }) {
     if (window.matchMedia("(max-width: 767px)").matches) router.push("/");
   }, [close, router]);
 
-  // Sending -> sent after 1.5s
-  useEffect(() => {
-    if (step !== "sending") return;
-    const t = setTimeout(() => setStep("sent"), SENDING_MS);
-    return () => clearTimeout(t);
-  }, [step]);
-
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Resend delivery is wired in a later step; the UI flow follows the prototype.
+    const form = e.currentTarget;
+    const data = new FormData(form); // read before the fields are disabled
+    setErrors({});
+    setBanner(null);
     setStep("sending");
+
+    const started = Date.now();
+    let result: ContactResult;
+    try {
+      result = await sendContact(data);
+    } catch {
+      result = { ok: false, message: FAILURE };
+    }
+    const wait = MIN_SENDING_MS - (Date.now() - started);
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+
+    if (result.ok) {
+      form.reset();
+      setStep("sent");
+    } else {
+      setErrors(result.fieldErrors ?? {});
+      setBanner(result.fieldErrors ? null : (result.message ?? FAILURE));
+      setStep("form");
+    }
   }
 
   return (
@@ -120,21 +143,88 @@ export function ContactProvider({ children }: { children: ReactNode }) {
               </button>
             </div>
 
+            {banner && (
+              <p role="alert" className="text-body border border-error p-4 text-error">
+                {banner}{" "}
+                <a href={`mailto:${site.email}`} className="underline">
+                  Email me instead
+                </a>
+              </p>
+            )}
+
             <fieldset disabled={step === "sending"} className="flex flex-col gap-5">
               <div className="flex flex-col gap-4 md:flex-row">
-                <label className="text-label flex flex-1 flex-col gap-2">
-                  Full name
-                  <input name="name" required autoComplete="name" placeholder="Jane Cooper" className={`${field} font-normal`} />
-                </label>
-                <label className="text-label flex flex-1 flex-col gap-2">
-                  Email
-                  <input name="email" type="email" required autoComplete="email" placeholder="you@company.com" className={`${field} font-normal`} />
-                </label>
+                <div className="flex flex-1 flex-col gap-2">
+                  <label htmlFor="contact-name" className="text-label">
+                    Full name
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    required
+                    autoComplete="name"
+                    placeholder="Jane Cooper"
+                    aria-invalid={errors.name ? true : undefined}
+                    aria-describedby={errors.name ? "contact-name-error" : undefined}
+                    className={`${field} ${errors.name ? "border-error" : ""}`}
+                  />
+                  {errors.name && (
+                    <p id="contact-name-error" role="alert" className="text-caption text-error">
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-1 flex-col gap-2">
+                  <label htmlFor="contact-email" className="text-label">
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    aria-invalid={errors.email ? true : undefined}
+                    aria-describedby={errors.email ? "contact-email-error" : undefined}
+                    className={`${field} ${errors.email ? "border-error" : ""}`}
+                  />
+                  {errors.email && (
+                    <p id="contact-email-error" role="alert" className="text-caption text-error">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
               </div>
-              <label className="text-label flex flex-col gap-2">
-                Message
-                <textarea name="message" required rows={4} placeholder="What would you like to talk about?" className={`${field} resize-none font-normal`} />
-              </label>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="contact-message" className="text-label">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  rows={4}
+                  placeholder="What would you like to talk about?"
+                  aria-invalid={errors.message ? true : undefined}
+                  aria-describedby={errors.message ? "contact-message-error" : undefined}
+                  className={`${field} resize-none ${errors.message ? "border-error" : ""}`}
+                />
+                {errors.message && (
+                  <p id="contact-message-error" role="alert" className="text-caption text-error">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+              {/* Spam trap: hidden from people, filled in by bots. */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+              />
             </fieldset>
 
             <hr className="h-px border-0 bg-surface-subtle" />
