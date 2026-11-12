@@ -127,8 +127,8 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
       <Band tone="surface" className="flex flex-col gap-12">
         <p className="text-caption text-text-secondary">{c.decisions.caption}</p>
         {c.decisions.items.map((d) => (
-          <div key={d.number} className="flex flex-col items-center gap-8 md:flex-row md:gap-16">
-            <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] md:w-[560px]">
+          <div key={d.number} className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
+            <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] lg:w-[560px]">
               <Image
                 src={d.image}
                 alt=""
@@ -183,9 +183,9 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
           title="More case studies"
           intro="Other projects, same care for the people using them."
         />
-        <div className="flex w-full flex-col justify-center gap-8 md:w-auto md:flex-row md:gap-6">
+        <div className="flex w-full flex-col justify-center gap-8 lg:w-auto lg:flex-row lg:gap-6">
           {more.map((p) => (
-            <div key={p.slug} className="md:w-[376px]">
+            <div key={p.slug} className="lg:w-[376px]">
               <ProjectCard
                 slug={p.slug}
                 title={p.title.split(" ")[0]}

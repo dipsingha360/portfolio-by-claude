@@ -96,8 +96,8 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
 
       {/* Example project */}
       <Band>
-        <div className="flex flex-col items-center gap-8 md:flex-row md:gap-16">
-          <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] md:w-[560px]">
+        <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
+          <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] lg:w-[560px]">
             <Image
               src={d.example.image}
               alt=""

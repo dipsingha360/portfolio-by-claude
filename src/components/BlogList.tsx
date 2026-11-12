@@ -31,8 +31,8 @@ export function BlogList() {
 
       {showFeatured && (
         <div className="mx-auto w-full max-w-[1176px] px-6 pt-4 xl:px-0">
-          <div className="flex flex-col items-center gap-8 border border-surface-subtle bg-background p-6 md:flex-row md:gap-12">
-            <div className="relative h-[240px] w-full shrink-0 overflow-hidden md:h-[360px] md:w-[560px]">
+          <div className="flex flex-col items-center gap-8 border border-surface-subtle bg-background p-6 lg:flex-row lg:gap-12">
+            <div className="relative h-[240px] w-full shrink-0 overflow-hidden md:h-[360px] lg:w-[560px]">
               <Image
                 src="/images/blog/featured.png"
                 alt=""
