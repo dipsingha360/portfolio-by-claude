@@ -36,22 +36,22 @@ export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto flex w-full max-w-[1176px] flex-col items-start gap-6 px-6 pb-12 pt-6 md:pb-16 md:pt-12 xl:px-0">
+      <section className="mx-auto flex w-full max-w-[1176px] flex-col items-start gap-6 px-6 pb-12 pt-12 md:pb-16 xl:px-0">
         <Link
           href="/blog"
-          className="text-label flex min-h-touch w-fit items-center hover:underline hover:underline-offset-8"
+          className="text-label flex min-h-[52px] w-fit items-center hover:underline hover:underline-offset-8 md:min-h-touch"
         >
           ←&nbsp;&nbsp;All articles
         </Link>
         <Badge>{d.category}</Badge>
         <h1 className="text-h2 max-w-[900px]">{d.title}</h1>
         <p className="text-body-large max-w-[900px] text-text-secondary">{d.subtitle}</p>
-        <dl className="flex flex-wrap gap-x-6 gap-y-4">
+        <dl className="grid w-full grid-cols-2 gap-x-4 gap-y-4 md:flex md:flex-wrap md:gap-x-6">
           {d.meta.map((m) => (
-            <MetaItem key={m.label} {...m} className="w-[200px]" />
+            <MetaItem key={m.label} {...m} className="md:w-[200px]" />
           ))}
         </dl>
-        <div className="relative h-[240px] w-full overflow-hidden md:h-[560px]">
+        <div className="relative h-[163px] w-full overflow-hidden md:h-[560px]">
           <Image
             src={d.hero}
             alt=""

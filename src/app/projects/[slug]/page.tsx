@@ -35,10 +35,10 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto flex w-full max-w-[1176px] flex-col gap-8 px-6 pb-16 pt-6 md:pt-12 xl:px-0">
+      <section className="mx-auto flex w-full max-w-[1176px] flex-col gap-8 px-6 pb-12 pt-12 md:pb-16 xl:px-0">
         <Link
           href="/projects"
-          className="text-label flex min-h-touch w-fit items-center hover:underline hover:underline-offset-8"
+          className="text-label flex min-h-[52px] w-fit items-center hover:underline hover:underline-offset-8 md:min-h-touch"
         >
           ←&nbsp;&nbsp;All projects
         </Link>
@@ -48,15 +48,15 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
           <p className="text-lead">{c.lead}</p>
         </div>
         <hr className="h-px border-0 bg-surface-subtle" />
-        <dl className="flex flex-col gap-6 md:flex-row">
+        <dl className="grid grid-cols-2 gap-4 md:flex md:flex-row md:gap-6">
           {c.meta.map((m) => (
             <MetaItem key={m.label} {...m} />
           ))}
         </dl>
-        <Button href="#at-a-glance" className="w-fit">
+        <Button href="#at-a-glance" className="w-full md:w-fit">
           See full case study &nbsp;↗
         </Button>
-        <div className="relative h-[280px] w-full overflow-hidden md:h-[640px]">
+        <div className="relative h-[186px] w-full overflow-hidden md:h-[640px]">
           <Image
             src={c.hero}
             alt=""
@@ -128,11 +128,11 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
       </Band>
 
       {/* 04 Key design decisions */}
-      <Band tone="surface" className="flex flex-col gap-12">
+      <Band tone="surface" className="flex flex-col gap-8 md:gap-12">
         <p className="text-caption text-text-secondary">{c.decisions.caption}</p>
         {c.decisions.items.map((d) => (
-          <div key={d.number} className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
-            <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] lg:w-[560px]">
+          <div key={d.number} className="flex flex-col items-center gap-6 md:gap-8 lg:flex-row lg:gap-16">
+            <div className="relative h-[244px] w-full shrink-0 overflow-hidden md:h-[400px] lg:w-[560px]">
               <Image
                 src={d.image}
                 alt=""

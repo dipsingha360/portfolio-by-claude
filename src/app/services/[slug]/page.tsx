@@ -33,14 +33,14 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto flex w-full max-w-[1176px] flex-col gap-8 px-6 pb-16 pt-6 md:pt-12 xl:px-0">
+      <section className="mx-auto flex w-full max-w-[1176px] flex-col gap-8 px-6 pb-12 pt-12 md:pb-16 xl:px-0">
         <Link
           href="/services"
-          className="text-label flex min-h-touch w-fit items-center hover:underline hover:underline-offset-8"
+          className="text-label flex min-h-[52px] w-fit items-center hover:underline hover:underline-offset-8 md:min-h-touch"
         >
           ←&nbsp;&nbsp;All services
         </Link>
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:gap-16">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:gap-16">
           <div className="flex min-w-0 flex-1 flex-col gap-4">
             <p className="text-caption text-text-secondary">{d.eyebrow}</p>
             <h1 className="text-h2">{d.title}</h1>
@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {d.images.map((src) => (
-            <div key={src} className="relative h-[240px] overflow-hidden md:h-[300px]">
+            <div key={src} className="relative h-[257px] overflow-hidden max-md:nth-[n+2]:hidden md:h-[300px]">
               <Image
                 src={src}
                 alt=""
