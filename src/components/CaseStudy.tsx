@@ -6,15 +6,22 @@ export function Band({
   tone = "default",
   className = "",
   id,
+  compact = false,
 }: {
   children: ReactNode;
   tone?: "default" | "surface";
   className?: string;
   id?: string;
+  /** 64px vertical padding instead of 96px (Figma "Quick facts" / "Tools" bands). */
+  compact?: boolean;
 }) {
   return (
     <section id={id} className={tone === "surface" ? "bg-surface" : "bg-background"}>
-      <div className={`mx-auto w-full max-w-[1176px] px-6 py-16 md:py-section xl:px-0 ${className}`}>
+      <div
+        className={`mx-auto w-full max-w-[1176px] px-6 py-16 xl:px-0 ${
+          compact ? "" : "md:py-section"
+        } ${className}`}
+      >
         {children}
       </div>
     </section>
@@ -96,12 +103,14 @@ export function ProcessRow({
   duration,
   description,
   deliverables,
+  label = "What you get",
 }: {
   number: string;
   title: string;
   duration: string;
   description: string;
   deliverables: string;
+  label?: string;
 }) {
   return (
     <div className="flex w-full flex-col gap-4 border border-surface-subtle bg-background p-6 md:flex-row md:gap-12">
@@ -112,7 +121,7 @@ export function ProcessRow({
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-3">
         <p className="text-body text-text-secondary">{description}</p>
-        <p className="text-label">What you get</p>
+        <p className="text-label">{label}</p>
         <p className="text-body">{deliverables}</p>
       </div>
     </div>

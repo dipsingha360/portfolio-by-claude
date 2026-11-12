@@ -37,7 +37,7 @@ export default function Home() {
               design, a background in graphic design, and now leading a team of 4 designers.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button wide href="/about#resume">
+              <Button wide href="/resume.pdf">
                 Download resume
               </Button>
               <Button variant="secondary" href="/projects">
