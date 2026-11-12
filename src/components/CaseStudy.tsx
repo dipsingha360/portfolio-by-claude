@@ -81,6 +81,36 @@ export function ProcessStep({
   );
 }
 
+/** Figma: Molecules / Process row (step, duration, what happens, what you get). */
+export function ProcessRow({
+  number,
+  title,
+  duration,
+  description,
+  deliverables,
+}: {
+  number: string;
+  title: string;
+  duration: string;
+  description: string;
+  deliverables: string;
+}) {
+  return (
+    <div className="flex w-full flex-col gap-4 border border-surface-subtle bg-background p-6 md:flex-row md:gap-12">
+      <div className="flex flex-col gap-2 md:w-[328px] md:shrink-0">
+        <p className="text-caption text-text-secondary">{number}</p>
+        <h3 className="text-h3">{title}</h3>
+        <p className="text-caption text-text-secondary">{duration}</p>
+      </div>
+      <div className="flex min-w-0 flex-1 flex-col gap-3">
+        <p className="text-body text-text-secondary">{description}</p>
+        <p className="text-label">What you get</p>
+        <p className="text-body">{deliverables}</p>
+      </div>
+    </div>
+  );
+}
+
 /** Figma: Atoms / Badge (static label). */
 export function Badge({ children }: { children: ReactNode }) {
   return (

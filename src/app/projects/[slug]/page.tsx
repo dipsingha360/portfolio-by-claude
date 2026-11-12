@@ -103,7 +103,7 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
 
       {/* Process */}
       <Band tone="surface" className="flex flex-col gap-12">
-        <SectionHeading title={c.process.title} intro={c.process.intro} />
+        <SectionHeading wide title={c.process.title} intro={c.process.intro} />
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {c.process.steps.map((s) => (
             <ProcessStep key={s.number} {...s} />
@@ -148,7 +148,7 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
 
       {/* Results */}
       <Band className="flex flex-col items-center gap-12">
-        <SectionHeading title={c.results.title} intro={c.results.intro} />
+        <SectionHeading wide title={c.results.title} intro={c.results.intro} />
         <div className="flex w-full flex-col gap-6 md:flex-row">
           {c.results.stats.map((s) => (
             <StatCard key={s.label} {...s} />
@@ -179,6 +179,7 @@ export default async function ProjectDetailPage({ params }: PageProps<"/projects
       {/* More case studies */}
       <Band className="flex flex-col items-center gap-12">
         <SectionHeading
+          wide
           title="More case studies"
           intro="Other projects, same care for the people using them."
         />
