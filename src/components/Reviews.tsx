@@ -7,15 +7,17 @@ export function ReviewCard({
   role,
   avatar,
   initials,
+  className = "lg:w-[384px]",
 }: {
   text: string;
   name: string;
   role: string;
   avatar: string | null;
   initials: string;
+  className?: string;
 }) {
   return (
-    <figure className="flex w-full flex-col gap-5 border border-surface-subtle bg-background p-6 lg:w-[384px]">
+    <figure className={`flex w-full flex-col gap-5 border border-surface-subtle bg-background p-6 ${className}`}>
       <span aria-hidden className="text-h3 text-text-secondary">
         “
       </span>

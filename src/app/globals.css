@@ -47,6 +47,15 @@
     line-height: 64px;
   }
 }
+@utility text-title {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
 @utility text-h3 {
   font-size: 24px;
   line-height: 32px;
