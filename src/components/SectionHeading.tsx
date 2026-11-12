@@ -14,7 +14,7 @@ export function SectionHeading({
   const Heading = page ? "h1" : "h2";
   return (
     <div
-      className={`mx-auto flex w-full flex-col items-center gap-4 px-6 text-center ${
+      className={`mx-auto flex w-full flex-col items-center gap-4 px-0 text-center md:px-6 ${
         wide ? "max-w-[1280px]" : "max-w-[640px]"
       }`}
     >

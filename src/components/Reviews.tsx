@@ -45,7 +45,7 @@ export function VideoTestimonial({ image, label }: { image: string; label: strin
     <button
       type="button"
       aria-label={label}
-      className="group relative h-[420px] w-full cursor-pointer overflow-hidden lg:w-[384px]"
+      className="group relative h-[240px] w-full lg:h-[420px] cursor-pointer overflow-hidden lg:w-[384px]"
     >
       <Image
         src={image}

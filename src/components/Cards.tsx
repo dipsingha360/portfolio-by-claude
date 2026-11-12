@@ -63,7 +63,7 @@ export function ServiceItem({
   return (
     <Link
       href={`/services/${slug}`}
-      className="group flex flex-col gap-6 border border-surface-subtle bg-background p-6 transition-colors hover:bg-surface md:flex-row"
+      className="group flex flex-col gap-4 border border-surface-subtle bg-background p-6 transition-colors hover:bg-surface md:flex-row md:gap-6"
     >
       <div className="flex min-w-0 flex-1 flex-col gap-3">
         <span className="text-caption">{String(index + 1).padStart(2, "0")}</span>
@@ -73,7 +73,7 @@ export function ServiceItem({
           View service &nbsp;→
         </span>
       </div>
-      <div className="relative h-[120px] min-w-0 flex-1 overflow-hidden">
+      <div className="relative h-[120px] min-w-0 shrink-0 overflow-hidden md:h-auto md:flex-1 md:shrink">
         <Image
           src={image}
           alt=""

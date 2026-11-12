@@ -10,9 +10,9 @@ const linkCls =
 /** Figma: Sections / Contact and footer. */
 export function Footer() {
   return (
-    <footer className={`bg-surface py-section ${bandPadding}`}>
-      <div className={`${container} flex flex-col gap-12`}>
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
+    <footer className={`bg-surface py-16 md:py-section ${bandPadding}`}>
+      <div className={`${container} flex flex-col gap-8 md:gap-12`}>
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row">
           <div className="flex w-full max-w-[420px] flex-col items-start gap-4">
             <p className="text-h3">
               Have a role or a<br />
@@ -25,20 +25,20 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="flex flex-col gap-8 md:flex-row md:gap-16">
-          <nav aria-label="Explore" className="flex flex-col gap-1">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-16">
+          <nav aria-label="Explore" className="flex flex-col gap-2 md:gap-1">
             <p className="text-caption text-text-secondary">Explore</p>
             <Link href="/" className={linkCls}>Home</Link>
             <Link href="/projects" className={linkCls}>Projects</Link>
             <Link href="/services" className={linkCls}>Services</Link>
             <Link href="/about" className={linkCls}>About</Link>
           </nav>
-          <nav aria-label="More" className="flex flex-col gap-1">
+          <nav aria-label="More" className="flex flex-col gap-2 md:gap-1">
             <p className="text-caption text-text-secondary">More</p>
             <Link href="/blog" className={linkCls}>Blog</Link>
             <ContactLink className={`${linkCls} cursor-pointer`}>Contact</ContactLink>
           </nav>
-          <nav aria-label="Connect" className="flex flex-col gap-1">
+          <nav aria-label="Connect" className="flex flex-col gap-2 md:gap-1">
             <p className="text-caption text-text-secondary">Connect</p>
             <a href={site.socials[2].href} className={linkCls}>LinkedIn</a>
             <a href={site.socials[1].href} className={linkCls}>Dribbble</a>
@@ -67,7 +67,7 @@ export function Footer() {
           </div>
           <p
             aria-hidden
-            className="text-display flex flex-wrap gap-x-6 text-[56px] leading-[64px] md:text-[112px] md:leading-[120px]"
+            className="text-display flex flex-col gap-2 md:flex-row md:gap-6"
           >
             <span>Dip</span>
             <span>Singha</span>
