@@ -103,6 +103,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Lock page scroll while a modal dialog (menu, contact) is open. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
