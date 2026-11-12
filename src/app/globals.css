@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens from the Figma file "Portfolio Design" (variables collection).
+ * Names mirror the Figma variables, e.g. color/text-primary -> --color-text-primary.
+ */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #ffffff;
+  --color-surface: #f6f6f6;
+  --color-surface-subtle: #e8e8e8;
+  --color-text-primary: #080808;
+  --color-text-secondary: #555555;
+  --color-text-inverse: #ffffff;
+  --color-action-primary: #080808;
+  --color-border-control: #767676;
+
+  --radius-control: 4px;
+
+  --spacing-gutter-md: 80px; /* layout/page-gutter-md */
+  --spacing-gutter-lg: 132px; /* layout/page-gutter-lg */
+  --spacing-section: 96px; /* layout/section-space */
+  --spacing-touch: 48px; /* size/touch-min */
+}
+
+/* Type styles ("MS / ...") as utilities: size / line-height / weight */
+@utility text-display {
+  font-size: 112px;
+  line-height: 120px;
+  font-weight: 600;
+}
+@utility text-h2 {
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 700;
+}
+@utility text-h3 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+@utility text-lead {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 600;
+}
+@utility text-label {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+@utility text-body {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+@utility text-caption {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+/* Visible keyboard focus (Figma: "Focus shows the blue ring") */
+:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
