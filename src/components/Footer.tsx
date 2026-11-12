@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./Button";
+import { ContactButton, ContactLink } from "./ContactButton";
 import { site } from "@/lib/data";
 
 const linkCls =
@@ -10,7 +10,6 @@ const linkCls =
 export function Footer() {
   return (
     <footer
-      id="contact"
       className="flex flex-col gap-12 bg-surface px-6 py-section md:px-gutter-md"
     >
       <div className="flex flex-col items-start justify-between gap-8 md:flex-row">
@@ -19,7 +18,7 @@ export function Footer() {
             Have a role or a<br />
             project in mind?
           </p>
-          <Button href={`mailto:${site.email}`}>Let’s talk &nbsp;↗</Button>
+          <ContactButton>Let’s talk &nbsp;↗</ContactButton>
         </div>
         <a href={`mailto:${site.email}`} className="text-h3 break-all">
           {site.email}
@@ -37,7 +36,7 @@ export function Footer() {
         <nav aria-label="More" className="flex flex-col gap-1">
           <p className="text-caption text-text-secondary">More</p>
           <Link href="/blog" className={linkCls}>Blog</Link>
-          <a href={`mailto:${site.email}`} className={linkCls}>Contact</a>
+          <ContactLink className={`${linkCls} cursor-pointer`}>Contact</ContactLink>
         </nav>
         <nav aria-label="Connect" className="flex flex-col gap-1">
           <p className="text-caption text-text-secondary">Connect</p>

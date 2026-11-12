@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Button } from "./Button";
+import { ContactButton } from "./ContactButton";
 import { site } from "@/lib/data";
 
 function isCurrent(pathname: string, href: string) {
@@ -42,7 +42,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/#contact">Let’s talk</Button>
+          <ContactButton>Let’s talk</ContactButton>
         </div>
 
         <button
@@ -73,9 +73,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href="/#contact" className="mt-4 w-full" onClick={() => setMenuOpen(false)}>
-            Let’s talk
-          </Button>
+          <ContactButton className="mt-4 w-full">Let’s talk &nbsp;↗</ContactButton>
         </nav>
       )}
     </header>
