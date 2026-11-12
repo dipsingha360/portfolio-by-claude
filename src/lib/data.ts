@@ -18,24 +18,63 @@ export const site = {
   ],
 };
 
-export const projects = [
+export const projectFilters = [
+  "All",
+  "Product Design",
+  "Design Systems",
+  "Branding",
+  "Website Design",
+] as const;
+export type ProjectFilter = (typeof projectFilters)[number];
+
+export const projects: {
+  slug: string;
+  title: string;
+  tags: string;
+  image: string;
+  categories: Exclude<ProjectFilter, "All">[];
+}[] = [
   {
     slug: "oneielts",
     title: "OneIELTS Web & Mobile Application",
     tags: "Design System · Web & Mobile App",
     image: "/images/home/project-designora.png",
+    categories: ["Design Systems", "Product Design"],
   },
   {
     slug: "onepte",
     title: "OnePTE Web & Mobile Application",
     tags: "Design System · Web & Mobile App",
     image: "/images/home/project-beanfox.png",
+    categories: ["Design Systems", "Product Design"],
   },
   {
     slug: "calldoc",
     title: "CallDoc Web & Mobile Application",
     tags: "Design System · Web & Mobile App",
     image: "/images/home/project-creativox.png",
+    categories: ["Design Systems", "Product Design"],
+  },
+  {
+    slug: "webilon",
+    title: "[Project name]",
+    tags: "Branding · Visual Identity",
+    image: "/images/projects/webilon.png",
+    categories: ["Branding"],
+  },
+  {
+    slug: "monerva",
+    title: "[Project name]",
+    tags: "Website Design · Webflow",
+    image: "/images/projects/monerva.png",
+    categories: ["Website Design"],
+  },
+  {
+    slug: "graphora",
+    title: "[Project name]",
+    tags: "Product Design · Web App",
+    image: "/images/projects/graphora.png",
+    categories: ["Product Design"],
   },
 ];
 

@@ -56,7 +56,7 @@ export default function Home() {
           intro="A few projects I’m proud of, from mobile apps to design systems and brand work. Each one shows how I think, not just how it looks."
         />
         <div className="flex w-full flex-col gap-14 md:flex-row md:gap-6">
-          {projects.map((p) => (
+          {projects.slice(0, 3).map((p) => (
             <ProjectCard key={p.slug} {...p} />
           ))}
         </div>

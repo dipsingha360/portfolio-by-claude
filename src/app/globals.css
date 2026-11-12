@@ -24,16 +24,28 @@
   --spacing-touch: 48px; /* size/touch-min */
 }
 
-/* Type styles ("MS / ...") as utilities: size / line-height / weight */
+/*
+ * Type styles ("MS / ...") as utilities. Values are the mobile token set;
+ * the desktop set applies from the md breakpoint (768px), matching the
+ * Figma responsive token collection.
+ */
 @utility text-display {
-  font-size: 112px;
-  line-height: 120px;
-  font-weight: 600;
-}
-@utility text-h2 {
   font-size: 56px;
   line-height: 64px;
+  font-weight: 600;
+  @media (min-width: 768px) {
+    font-size: 112px;
+    line-height: 120px;
+  }
+}
+@utility text-h2 {
+  font-size: 36px;
+  line-height: 44px;
   font-weight: 700;
+  @media (min-width: 768px) {
+    font-size: 56px;
+    line-height: 64px;
+  }
 }
 @utility text-h3 {
   font-size: 24px;
@@ -46,19 +58,31 @@
   font-weight: 600;
 }
 @utility text-label {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 28px;
   font-weight: 600;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 @utility text-body {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+@utility text-caption {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-}
-@utility text-caption {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
+  @media (min-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }
 
 html {

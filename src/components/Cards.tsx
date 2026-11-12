@@ -18,7 +18,7 @@ export function ProjectCard({
       href={`/projects/${slug}`}
       className="group flex min-w-0 flex-1 flex-col gap-4"
     >
-      <div className="relative h-[320px] w-full overflow-hidden">
+      <div className="relative h-[240px] w-full overflow-hidden md:h-[320px]">
         <Image
           src={image}
           alt=""
@@ -30,7 +30,7 @@ export function ProjectCard({
       <div className="flex flex-col gap-2">
         <h3 className="text-h3">{title}</h3>
         <p className="text-caption text-text-secondary">{tags}</p>
-        <span className="text-label opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+        <span className="text-label transition-opacity md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
           View case study &nbsp;→
         </span>
       </div>

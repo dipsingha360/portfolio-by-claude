@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -45,15 +46,24 @@ export function Header() {
           <ContactButton>Let’s talk</ContactButton>
         </div>
 
-        <button
-          type="button"
-          className="text-label -mr-3 flex min-h-touch min-w-touch cursor-pointer items-center justify-center p-3 md:hidden"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          {menuOpen ? "Close" : "Menu"}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ContactButton>Let’s talk</ContactButton>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex size-12 cursor-pointer items-center justify-center rounded-full hover:bg-surface-subtle"
+          >
+            <Image
+              src={menuOpen ? "/images/icons/close.svg" : "/images/icons/menu.svg"}
+              alt=""
+              width={24}
+              height={24}
+            />
+          </button>
+        </div>
       </div>
 
       {menuOpen && (
@@ -73,7 +83,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <ContactButton className="mt-4 w-full">Let’s talk &nbsp;↗</ContactButton>
         </nav>
       )}
     </header>
