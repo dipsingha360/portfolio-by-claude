@@ -19,7 +19,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-background">
+    <header className="sticky top-0 z-40 border-b border-surface-subtle bg-background">
       <div className={`${bandPadding} py-6`}>
         <div className={`${container} flex items-center justify-between`}>
           <Link href="/" className="text-label">

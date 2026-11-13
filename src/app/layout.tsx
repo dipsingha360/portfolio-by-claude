@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+import { ImageFade } from "@/components/ImageFade";
+import { ViewTransition } from "react";
 import { Footer } from "@/components/Footer";
 import { ContactProvider } from "@/components/ContactModal";
 import { getSiteUrl } from "@/lib/site-url";
@@ -47,8 +49,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ContactProvider>
           <Header />
           <main id="main" tabIndex={-1} className="flex-1 outline-none">
-            {children}
+            <ViewTransition>{children}</ViewTransition>
           </main>
+          <ImageFade />
           <Footer />
         </ContactProvider>
       </body>

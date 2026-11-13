@@ -68,7 +68,7 @@ export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-24">
           <nav
             aria-label="In this article"
-            className="flex flex-col gap-2 lg:sticky lg:top-6 lg:w-[280px] lg:shrink-0 lg:self-start"
+            className="flex flex-col gap-2 lg:sticky lg:top-[120px] lg:w-[280px] lg:shrink-0 lg:self-start"
           >
             <p className="text-caption text-text-secondary">In this article</p>
             {d.toc.map((t, i) => (
@@ -93,7 +93,7 @@ export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]
                   );
                 case "heading":
                   return (
-                    <h2 key={i} id={b.id} className="text-h3 mt-4 scroll-mt-6">
+                    <h2 key={i} id={b.id} className="text-h3 mt-4">
                       {b.text}
                     </h2>
                   );
