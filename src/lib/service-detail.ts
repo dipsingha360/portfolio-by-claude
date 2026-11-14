@@ -25,9 +25,9 @@ const productDesign: ServiceDetail = {
   title: "Product Design",
   lead: "I design web and mobile apps from first idea to final handoff, so your team ships a product people find easy to use.",
   images: [
-    "/images/services/product-design-1.png",
-    "/images/services/product-design-2.png",
-    "/images/services/product-design-3.png",
+    "/images/services/product-design-1.jpg",
+    "/images/services/product-design-2.jpg",
+    "/images/services/product-design-3.jpg",
   ],
   cta: {
     primary: "Let’s talk about your product",
@@ -212,9 +212,9 @@ const designSystems: ServiceDetail = {
   title: "Design Systems",
   lead: "I build Figma design systems that keep your product consistent, so your team designs faster, developers rebuild less and every screen feels like one product.",
   images: [
-    "/images/services/design-systems-1.png",
-    "/images/services/design-systems-2.png",
-    "/images/services/design-systems-3.png",
+    "/images/services/design-systems-1.jpg",
+    "/images/services/design-systems-2.jpg",
+    "/images/services/design-systems-3.jpg",
   ],
   cta: {
     primary: "Let’s talk about your system",
@@ -403,9 +403,9 @@ const branding: ServiceDetail = {
   title: "Branding & Visual Identity",
   lead: "I create logos, colors, type and guidelines that give your product a clear, friendly personality, so people recognize you and remember you.",
   images: [
-    "/images/services/branding-1.png",
-    "/images/services/branding-2.png",
-    "/images/services/branding-3.png",
+    "/images/services/branding-1.jpg",
+    "/images/services/branding-2.jpg",
+    "/images/services/branding-3.jpg",
   ],
   cta: {
     primary: "Let’s talk about your brand",
@@ -594,9 +594,9 @@ const websiteDesign: ServiceDetail = {
   title: "Website Design",
   lead: "I design landing pages and marketing sites in Webflow or Framer that look great, load fast and are easy for you to update yourself.",
   images: [
-    "/images/services/website-design-1.png",
-    "/images/services/website-design-2.png",
-    "/images/services/website-design-3.png",
+    "/images/services/website-design-1.jpg",
+    "/images/services/website-design-2.jpg",
+    "/images/services/website-design-3.jpg",
   ],
   cta: {
     primary: "Let’s talk about your website",
