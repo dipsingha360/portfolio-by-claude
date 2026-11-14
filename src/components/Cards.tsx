@@ -73,7 +73,7 @@ export function ServiceItem({
           View service &nbsp;→
         </span>
       </div>
-      <div className="relative h-[120px] min-w-0 shrink-0 overflow-hidden md:h-auto md:flex-1 md:shrink">
+      <div className="relative h-[120px] min-w-0 shrink-0 overflow-hidden md:flex-1 md:self-start">
         <Image
           src={image}
           alt=""
