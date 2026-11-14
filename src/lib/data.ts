@@ -163,6 +163,7 @@ export const blogFilters = [
   "UX Writing",
   "Leadership",
   "Career",
+  "AI & UX",
 ] as const;
 export type BlogFilter = (typeof blogFilters)[number];
 
@@ -175,6 +176,36 @@ export const articles: {
   image: string;
   category: Exclude<BlogFilter, "All">;
 }[] = [
+  {
+    slug: "ai-ux-patterns",
+    date: "Nov 14, 2026",
+    readTime: "3 min read",
+    title: "AI UX in 2026: five patterns every product team needs",
+    summary:
+      "Checkpoints, undo, honest uncertainty, helpful errors and structure. How to make AI features clear, safe and easy to correct.",
+    image: "/images/home/article-2.png",
+    category: "AI & UX",
+  },
+  {
+    slug: "ai-design-job-market",
+    date: "Nov 13, 2026",
+    readTime: "3 min read",
+    title: "What AI changed in the design job market, and what it didn’t",
+    summary:
+      "What 2026 surveys and job data say about hiring, exposed tasks and the skills that are growing in value.",
+    image: "/images/home/article-3.png",
+    category: "Career",
+  },
+  {
+    slug: "ai-design-workflow",
+    date: "Nov 13, 2026",
+    readTime: "3 min read",
+    title: "How I design with AI: my workflow, step by step",
+    summary:
+      "Where AI helps me move faster, where I stop and decide, and how my team keeps quality high.",
+    image: "/images/home/article-1.png",
+    category: "AI & UX",
+  },
   {
     slug: "graphic-to-product-design",
     date: "Nov 12, 2026",

@@ -146,6 +146,26 @@ export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]
                       </ol>
                     </div>
                   );
+                case "sources":
+                  return (
+                    <div key={i} className="flex flex-col gap-2 border-t border-surface-subtle pt-6">
+                      <p className="text-label">Sources</p>
+                      <ul className="flex flex-col gap-1">
+                        {b.items.map((it) => (
+                          <li key={it.url} className="text-caption text-text-secondary">
+                            <a
+                              href={it.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline underline-offset-4 hover:text-text-primary"
+                            >
+                              {it.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
               }
             })}
 

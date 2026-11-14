@@ -7,7 +7,8 @@ export type Block =
   | { type: "heading"; id: string; text: string }
   | { type: "p"; text: string }
   | { type: "quote"; text: string }
-  | { type: "takeaways"; title: string; items: string[] };
+  | { type: "takeaways"; title: string; items: string[] }
+  | { type: "sources"; items: { label: string; url: string }[] };
 
 export type ArticleBody = {
   toc: { id: string; label: string }[];
@@ -98,6 +99,7 @@ const h = (id: string, text: string): Block => ({ type: "heading", id, text });
 const p = (text: string): Block => ({ type: "p", text });
 const lead = (text: string): Block => ({ type: "lead", text });
 const quote = (text: string): Block => ({ type: "quote", text });
+const sources = (items: { label: string; url: string }[]): Block => ({ type: "sources", items });
 const takeaways = (items: string[]): Block => ({ type: "takeaways", title: "Key takeaways", items });
 
 const designSystem: ArticleBody = {
@@ -442,6 +444,200 @@ const naming: ArticleBody = {
   keepReading: ["design-system-from-scratch", "ux-copy-as-a-designer", "leading-a-design-team"],
 };
 
+const aiPatterns: ArticleBody = {
+  toc: [
+    { id: "shift", label: "From answers to actions" },
+    { id: "checkpoints", label: "Pattern 1: Checkpoints" },
+    { id: "undo", label: "Pattern 2: Undo and history" },
+    { id: "uncertainty", label: "Pattern 3: Honest uncertainty" },
+    { id: "errors", label: "Pattern 4: Errors that recover" },
+    { id: "structure", label: "Pattern 5: Structure over chat" },
+  ],
+  blocks: [
+    lead(
+      "AI features are no longer just chat boxes. They plan, decide and act for people. That changes what good UX means: the job is to make the AI’s behavior understandable, predictable and easy to correct.",
+    ),
+    h("shift", "From answers to actions"),
+    p(
+      "The first wave of AI products answered questions. The new wave, often called agentic UX, completes multi-step tasks: booking, drafting, sorting, updating. Most 2026 design write-ups agree on one point: when software acts on a person’s behalf, trust becomes the main design problem.",
+    ),
+    p(
+      "Microsoft’s 18 guidelines for human-AI interaction, published back in 2019, still hold up well. They ask us to set the right expectations, support correction and show why the system did what it did. Here are the five patterns I use to apply them.",
+    ),
+    h("checkpoints", "Pattern 1: Checkpoints before big actions"),
+    p(
+      "Let the AI do the routine work on its own, but pause before anything costly, public or hard to reverse. A travel assistant can compare flights freely, then ask “Book this one?” before it spends money.",
+    ),
+    p(
+      "Good checkpoint copy is short and specific: say what will happen, what it affects and give a clear choice. “Send 12 emails to your team?” beats “Are you sure?”",
+    ),
+    h("undo", "Pattern 2: Undo and a visible history"),
+    p(
+      "People relax when they know they can go back. Show what the AI changed, keep a simple activity log and make “Undo” easy to find. If you can’t undo an action, say so before it happens.",
+    ),
+    quote("“The more an AI can do, the more people need a clear way to take it back.”"),
+    h("uncertainty", "Pattern 3: Honest uncertainty"),
+    p(
+      "AI can be wrong and sound confident. Match your wording to how reliable the result really is. Use softer language, such as “This looks like…”, when confidence is low, and show where an answer came from so people can check it.",
+    ),
+    p(
+      "Research summaries from Nielsen Norman Group suggest that people lean on the AI to explore, but go back to regular search when accuracy matters. Design for that: make checking easy, not shameful.",
+    ),
+    h("errors", "Pattern 4: Errors that help people recover"),
+    p(
+      "Every AI feature will fail sometimes. Plan for it. Say what went wrong in plain words, keep the person’s work and offer a next step: try again, edit by hand or contact support.",
+    ),
+    p(
+      "Add a quick way to give feedback on each result, such as a thumbs-down with a short reason. It helps the team improve the system and tells the person you’re listening.",
+    ),
+    h("structure", "Pattern 5: Structure over open chat"),
+    p(
+      "A blank chat box asks users to know what to type. Many 2026 products now guide people with structured flows, suggested actions and forms, and let the AI handle the messy middle. Keep chat for open questions, and give common tasks a clear path.",
+    ),
+    takeaways([
+      "Pause for approval before costly or hard-to-reverse actions.",
+      "Always offer undo and show what the AI changed.",
+      "Match your language to how reliable the answer is.",
+      "Write error messages that keep the user’s work and offer a next step.",
+      "Use structured flows for common tasks, chat for open questions.",
+    ]),
+    p(
+      "These patterns are not new rules. They are old UX ideas, like feedback, control and clear language, applied to software that now acts for us. [Add one real AI feature you designed and which pattern helped most.]",
+    ),
+    sources([
+      { label: "Microsoft HAX Toolkit: Guidelines for Human-AI Interaction", url: "https://www.microsoft.com/en-us/haxtoolkit/ai-guidelines/" },
+      { label: "Contrast UX: How AI is rewiring UX in 2026", url: "https://contrastux.com/blog/how-ai-is-rewiring-ux-2026" },
+      { label: "Designing for AI agents in 2026: patterns and frameworks", url: "https://shumin.design/blog/ai-agent-design-2026/" },
+      { label: "Nielsen Norman Group: articles on AI and UX", url: "https://www.nngroup.com/articles/" },
+    ]),
+  ],
+  keepReading: ["ai-design-workflow", "ai-design-job-market", "ux-copy-as-a-designer"],
+};
+
+const aiMarket: ArticleBody = {
+  toc: [
+    { id: "numbers", label: "What the numbers say" },
+    { id: "jobs", label: "The job market is splitting" },
+    { id: "exposed", label: "Which work is most exposed" },
+    { id: "valued", label: "Which skills are rising" },
+    { id: "do", label: "What I’d do next" },
+  ],
+  blocks: [
+    lead(
+      "Is AI replacing designers? The honest answer from 2026 data is: it’s replacing some tasks, changing most jobs and creating new ones. Here is what the research shows, and where it falls short.",
+    ),
+    h("numbers", "What the numbers say"),
+    p(
+      "The biggest study I found is the AI in Design 2026 report from Designer Fund and Foundation Capital. It surveyed 906 designers in more than 60 countries in March 2026. As reported by coverage of the study, weekly AI use among designers rose from 54% to 91%, the average designer now uses about 7 AI tools (up from 3), and around half have shipped AI-generated code to production.",
+    ),
+    p(
+      "The same coverage reports that 73% of designers feel more pressure on speed, quality and output, while only 28% of leaders say their company has formally changed how it works. Teams are moving faster than their processes.",
+    ),
+    quote("“Designers are doing more, owning more and shipping more than a year ago.”"),
+    h("jobs", "The job market is splitting"),
+    p(
+      "Two things are true at once. SignalFire’s 2026 talent report, as summarized by other writers, says design hiring at 12 large tech companies is down 48% compared with 2019. At the same time, Academy UX’s tracker showed roughly 20,700 product design postings in the US in October 2026, with AI product designer and design engineer roles growing about 15% month over month.",
+    ),
+    p(
+      "In other words: fewer generic roles, more specialized ones. One analysis of 2,739 product designer postings found that about 18% already list generative AI skills. And Figma’s February 2026 survey of design managers reports that 73% want candidates who are proficient in AI tools.",
+    ),
+    h("exposed", "Which work is most exposed"),
+    p(
+      "Repetitive production work faces the most pressure: resizing assets, templated graphics, background removal and quick layout variants. These are tasks where speed matters more than judgment, and AI is fast.",
+    ),
+    p(
+      "Work that depends on understanding people, choosing what to build and making trade-offs across a team is much harder to automate. Nielsen Norman Group’s 2026 coverage also points to AI fatigue: people lose patience with AI features that feel rushed or don’t solve a real need. Someone has to make the call on what actually helps.",
+    ),
+    h("valued", "Which skills are rising"),
+    p(
+      "From the sources above, four skills keep coming up: user research and problem framing, designing AI features (trust, errors, control), working closely with engineers, and using AI tools well and critically. Designers who can code a little or prototype with AI also stand out.",
+    ),
+    h("do", "What I’d do next"),
+    p(
+      "For my own career, I focus on what AI can’t do for me: talking to users, setting direction and leading a team of 4 designers. And I use AI to speed up the rest. [Add one concrete change you made to your own workflow this year.]",
+    ),
+    takeaways([
+      "AI use among designers is now close to universal in surveys.",
+      "Hiring is shifting from generic roles to specialized, AI-aware ones.",
+      "Routine production work is the most exposed.",
+      "Research, judgment and AI-product skills are growing in value.",
+      "Companies are moving faster than their processes, so clear ways of working are an advantage.",
+    ]),
+    p(
+      "A caution on the data: most figures here come from industry surveys, job-board trackers and secondary write-ups. They don’t always agree on definitions, so read them as direction, not exact truth, and check the original reports.",
+    ),
+    sources([
+      { label: "Designer Fund: AI in Design 2026", url: "https://designerfund.com/blog/ai-in-design-2026" },
+      { label: "Foundation Capital: How AI is reshaping design in tech", url: "https://foundationcapital.com/ideas/how-ai-is-reshaping-design-in-tech" },
+      { label: "Academy UX: UX job market update", url: "https://www.academyux.com/ux-job-market-hot-or-not" },
+      { label: "InterviewStack: Product designers in 2026", url: "https://interviewstack.io/blog/how-ai-is-changing-product-designer-2026" },
+      { label: "Designer hiring at big tech is down 48% since 2019 (SignalFire data, via Medium)", url: "https://medium.com/design-bootcamp/designer-hiring-at-big-tech-is-down-48-since-2019-new-job-titles-keep-appearing-d02260aa305f" },
+    ]),
+  ],
+  keepReading: ["ai-ux-patterns", "ai-design-workflow", "graphic-to-product-design"],
+};
+
+const aiWorkflow: ArticleBody = {
+  toc: [
+    { id: "rule", label: "My one rule" },
+    { id: "research", label: "Research and synthesis" },
+    { id: "explore", label: "Exploring ideas" },
+    { id: "build", label: "Design and prototype" },
+    { id: "words", label: "Copy and edge cases" },
+    { id: "review", label: "Review with the team" },
+  ],
+  blocks: [
+    lead(
+      "AI is now part of my daily design process, but not the part that decides. This is the workflow I use with my team of 4 designers, step by step, and where I stop and think for myself.",
+    ),
+    h("rule", "My one rule"),
+    p(
+      "AI can draft, but a person decides. I use it to get to a first version faster, then I check every result against what we know about our users. If I can’t explain why a choice is right, it doesn’t ship.",
+    ),
+    h("research", "Research and synthesis"),
+    p(
+      "After interviews or tests, I use AI to cluster notes and pull out possible themes. It saves hours of sorting. Then I go back to the raw notes and recordings to confirm each theme, because summaries can miss or invent details.",
+    ),
+    p(
+      "I never let AI replace talking to users. It helps with the paperwork after the conversation. [Add which tool you use for this.]",
+    ),
+    h("explore", "Exploring ideas"),
+    p(
+      "When I’m stuck, I ask AI for ten different ways to solve a problem, including odd ones. Most are not usable, but one or two change how I think. I treat the list as a starting point for sketching, not an answer.",
+    ),
+    quote("“AI gives me more options. Judgment picks the right one.”"),
+    h("build", "Design and prototype"),
+    p(
+      "I design in Figma with our design system, so every screen already uses the same tokens, components and states. That is the guardrail: AI-assisted drafts must still use our system, or they don’t come in.",
+    ),
+    p(
+      "For quick prototypes, AI helps me test an idea before I spend a day polishing it. Then we rebuild the winning idea properly with the design system and the engineers. [Add a prototyping tool you use, if any.]",
+    ),
+    h("words", "Copy and edge cases"),
+    p(
+      "I ask AI for first drafts of button labels, error messages and empty states, then edit them for tone. On OneIELTS, our learners are stressed, so I cut anything that sounds pushy or clever.",
+    ),
+    p(
+      "I also ask it to list edge cases I may have missed: empty, loading, error, slow connection. It’s a good checklist, and I still verify it with the developers.",
+    ),
+    h("review", "Review with the team"),
+    p(
+      "In design review, we say when AI helped and what we changed. It keeps the team honest, and it helps everyone learn what works. Quality still has to meet the same bar, whether a person or a tool made the first draft.",
+    ),
+    takeaways([
+      "AI drafts, people decide.",
+      "Use AI to sort research notes, then verify against the source.",
+      "Ask for many options, then pick with judgment.",
+      "Keep AI-assisted work inside your design system.",
+      "Be open in reviews about where AI helped.",
+    ]),
+    p(
+      "The tools will change every few months. The habits that matter, like asking why, testing with real people and caring about the details, will not.",
+    ),
+  ],
+  keepReading: ["ai-ux-patterns", "ai-design-job-market", "leading-a-design-team"],
+};
+
 export const articleBodies: Record<string, ArticleBody> = {
   "graphic-to-product-design": graphicToProduct,
   "design-system-from-scratch": designSystem,
@@ -450,4 +646,7 @@ export const articleBodies: Record<string, ArticleBody> = {
   "usability-test-in-one-afternoon": usability,
   "designing-ed-tech-for-test-takers": edTech,
   "naming-components": naming,
+  "ai-ux-patterns": aiPatterns,
+  "ai-design-job-market": aiMarket,
+  "ai-design-workflow": aiWorkflow,
 };
