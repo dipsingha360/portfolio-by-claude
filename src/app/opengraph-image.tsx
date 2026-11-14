@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/lib/data";
+import { glyphBox, logoGlyph } from "@/lib/logo";
 
 // The picture shown when a link to the site is shared (also used by X/Twitter).
 export const alt = `${site.name} — Product Designer`;
@@ -21,7 +22,31 @@ export default function OpengraphImage() {
           color: "#080808",
         }}
       >
-        <div style={{ display: "flex", fontSize: 32, fontWeight: 600 }}>{site.name}</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 32, fontWeight: 600 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 56,
+              height: 56,
+              background: "#080808",
+              borderRadius: 14,
+            }}
+          >
+            <svg
+              width={glyphBox(56).width}
+              height={glyphBox(56).height}
+              viewBox="0 0 21.3333 14.6667"
+              style={{ display: "flex" }}
+            >
+              {logoGlyph.paths.map((d) => (
+                <path key={d} d={d} fill="#ffffff" />
+              ))}
+            </svg>
+          </div>
+          {site.name}
+        </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div

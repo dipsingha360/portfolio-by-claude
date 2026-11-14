@@ -26,18 +26,20 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 md:flex-row md:gap-16">
-          <nav aria-label="Explore" className="flex flex-col gap-2 md:gap-1">
-            <p className="text-caption text-text-secondary">Explore</p>
-            <Link href="/" className={linkCls}>Home</Link>
-            <Link href="/projects" className={linkCls}>Projects</Link>
-            <Link href="/services" className={linkCls}>Services</Link>
-            <Link href="/about" className={linkCls}>About</Link>
-          </nav>
-          <nav aria-label="More" className="flex flex-col gap-2 md:gap-1">
-            <p className="text-caption text-text-secondary">More</p>
-            <Link href="/blog" className={linkCls}>Blog</Link>
-            <ContactLink className={`${linkCls} cursor-pointer`}>Contact</ContactLink>
-          </nav>
+          <div className="grid grid-cols-2 gap-6 md:flex md:gap-16">
+            <nav aria-label="Explore" className="flex flex-col gap-2 md:gap-1">
+              <p className="text-caption text-text-secondary">Explore</p>
+              <Link href="/" className={linkCls}>Home</Link>
+              <Link href="/projects" className={linkCls}>Projects</Link>
+              <Link href="/services" className={linkCls}>Services</Link>
+              <Link href="/about" className={linkCls}>About</Link>
+            </nav>
+            <nav aria-label="More" className="flex flex-col gap-2 md:gap-1">
+              <p className="text-caption text-text-secondary">More</p>
+              <Link href="/blog" className={linkCls}>Blog</Link>
+              <ContactLink className={`${linkCls} cursor-pointer`}>Contact</ContactLink>
+            </nav>
+          </div>
           <nav aria-label="Connect" className="flex flex-col gap-2 md:gap-1">
             <p className="text-caption text-text-secondary">Connect</p>
             <a href={site.socials[2].href} className={linkCls}>LinkedIn</a>
@@ -65,13 +67,22 @@ export function Footer() {
             <p>Designed and built by {site.name}</p>
             <p>© 2026 {site.name}. All rights reserved.</p>
           </div>
-          <p
-            aria-hidden
-            className="text-display flex flex-col gap-2 md:flex-row md:gap-6"
-          >
-            <span>Dip</span>
-            <span>Singha</span>
-          </p>
+          {/* Figma: Footer wordmark. One row, scaled to the row width (222px on a 1280px row). */}
+          <div className="@container">
+            <p
+              aria-hidden
+              className="flex select-none justify-between text-[17.3cqw] font-extrabold uppercase leading-[1.35] text-transparent md:leading-[1.08]"
+            >
+              {["Dip", "Singha"].map((word) => (
+                <span
+                  key={word}
+                  className="bg-linear-to-b from-[rgba(8,8,8,0)] to-[rgba(110,110,110,0.29)] bg-clip-text"
+                >
+                  {word}
+                </span>
+              ))}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

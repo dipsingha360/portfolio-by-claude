@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ContactButton } from "./ContactButton";
+import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { site } from "@/lib/data";
 import { bandPadding, container } from "@/lib/layout";
@@ -22,9 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-surface-subtle bg-background">
       <div className={`${bandPadding} py-6`}>
         <div className={`${container} flex items-center justify-between`}>
-          <Link href="/" className="text-label">
-            {site.name}
-          </Link>
+          <Logo />
 
           <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
             {site.nav.map((item) => {

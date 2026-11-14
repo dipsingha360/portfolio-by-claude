@@ -1,5 +1,6 @@
 "use client";
 
+import { Logo } from "./Logo";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -55,13 +56,7 @@ export function MobileMenu({
     >
       <div className="flex min-h-full flex-col gap-8 px-6 pb-10 pt-6">
         <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            onClick={onClose}
-            className="text-[22px] font-semibold leading-8"
-          >
-            {site.name}
-          </Link>
+          <Logo onNavigate={onClose} />
           <button
             type="button"
             aria-label="Close menu"
