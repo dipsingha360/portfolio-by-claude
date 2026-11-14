@@ -34,7 +34,7 @@ export function BlogList() {
           <div className="flex flex-col items-center gap-8 border border-surface-subtle bg-background p-6 lg:flex-row lg:gap-12">
             <div className="relative h-[240px] w-full shrink-0 overflow-hidden md:h-[360px] lg:w-[560px]">
               <Image
-                src="/images/blog/featured.png"
+                src={`/images/blog/${featured.slug}.png`}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 560px, 100vw"

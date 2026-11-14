@@ -6,7 +6,7 @@ import { ArticleCard } from "@/components/Cards";
 import { Badge, Band, MetaItem } from "@/components/CaseStudy";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { articleAuthor, articleBodies, articleHero } from "@/lib/blog-detail";
+import { articleAuthor, articleBodies } from "@/lib/blog-detail";
 import { articles } from "@/lib/data";
 
 // The Figma prototype designs one article page; every article uses that layout
@@ -20,7 +20,7 @@ function getArticle(slug: string) {
     category: a.category,
     title: a.title,
     subtitle: a.summary,
-    hero: articleHero,
+    hero: `/images/blog/${slug}.png`,
     author: articleAuthor,
     meta: [
       { label: "Written by", value: "Dip Singha" },

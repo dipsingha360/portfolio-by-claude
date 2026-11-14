@@ -183,7 +183,7 @@ export const articles: {
     title: "AI UX in 2026: five patterns every product team needs",
     summary:
       "Checkpoints, undo, honest uncertainty, helpful errors and structure. How to make AI features clear, safe and easy to correct.",
-    image: "/images/home/article-2.png",
+    image: "/images/blog/ai-ux-patterns-card.png",
     category: "AI & UX",
   },
   {
@@ -193,7 +193,7 @@ export const articles: {
     title: "What AI changed in the design job market, and what it didn’t",
     summary:
       "What 2026 surveys and job data say about hiring, exposed tasks and the skills that are growing in value.",
-    image: "/images/home/article-3.png",
+    image: "/images/blog/ai-design-job-market-card.png",
     category: "Career",
   },
   {
@@ -203,7 +203,7 @@ export const articles: {
     title: "How I design with AI: my workflow, step by step",
     summary:
       "Where AI helps me move faster, where I stop and decide, and how my team keeps quality high.",
-    image: "/images/home/article-1.png",
+    image: "/images/blog/ai-design-workflow-card.png",
     category: "AI & UX",
   },
   {
@@ -213,7 +213,7 @@ export const articles: {
     title: "From graphic design to product design: what changed for me",
     summary:
       "The skills that carried over, the ones I had to learn from scratch, and what I’d tell anyone making the same switch.",
-    image: "/images/home/article-1.png",
+    image: "/images/blog/graphic-to-product-design-card.png",
     category: "Career",
   },
   {
@@ -223,7 +223,7 @@ export const articles: {
     title: "Building a design system from scratch",
     summary:
       "How I planned, named and documented components so our team could design faster every day.",
-    image: "/images/home/article-2.png",
+    image: "/images/blog/design-system-from-scratch-card.png",
     category: "Design Systems",
   },
   {
@@ -233,7 +233,7 @@ export const articles: {
     title: "What I learned leading a team of 4 designers",
     summary:
       "Giving feedback, sharing work fairly and keeping quality high without becoming a bottleneck.",
-    image: "/images/home/article-3.png",
+    image: "/images/blog/leading-a-design-team-card.png",
     category: "Leadership",
   },
   {
@@ -243,7 +243,7 @@ export const articles: {
     title: "Writing UX copy as a designer",
     summary:
       "The simple rules I use for buttons, errors and empty states so screens are easier to use.",
-    image: "/images/home/article-1.png",
+    image: "/images/blog/ux-copy-as-a-designer-card.png",
     category: "UX Writing",
   },
   {
@@ -253,7 +253,7 @@ export const articles: {
     title: "How I run a usability test in one afternoon",
     summary:
       "A light way to test with 5 people, find the biggest problems and fix them before launch.",
-    image: "/images/home/article-2.png",
+    image: "/images/blog/usability-test-in-one-afternoon-card.png",
     category: "Product Design",
   },
   {
@@ -263,7 +263,7 @@ export const articles: {
     title: "Designing ed-tech apps for test takers",
     summary:
       "What I learned designing for students who are stressed, short on time and mostly on their phones.",
-    image: "/images/home/article-3.png",
+    image: "/images/blog/designing-ed-tech-for-test-takers-card.png",
     category: "Product Design",
   },
   {
@@ -273,7 +273,7 @@ export const articles: {
     title: "Naming components so your team can find them",
     summary:
       "A naming system for Figma components that designers and developers both understand.",
-    image: "/images/home/article-1.png",
+    image: "/images/blog/naming-components-card.png",
     category: "Design Systems",
   },
 ];
