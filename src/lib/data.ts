@@ -94,7 +94,7 @@ export const services = [
     title: "Product Design",
     summary:
       "I design web and mobile apps from first idea to final handoff. That means user research, flows, wireframes, prototypes and clean UI your developers can actually build.",
-    image: "/images/home/service-branding.png",
+    image: "/images/services/product-design-card.png",
     get: ["User research", "User flows", "Wireframes", "Prototypes", "UI design", "Developer handoff"],
   },
   {
@@ -102,7 +102,7 @@ export const services = [
     title: "Design Systems",
     summary:
       "I build Figma design systems that keep your product consistent and help your team ship faster: tokens, components and clear docs that designers and developers both use.",
-    image: "/images/home/service-product-design.png",
+    image: "/images/services/design-systems-card.png",
     get: ["Design tokens", "Component library", "Figma variables", "Documentation"],
   },
   {
@@ -110,7 +110,7 @@ export const services = [
     title: "Branding & Visual Identity",
     summary:
       "My roots are in graphic design. I create logos, colors, type and brand guidelines that give your product a clear and friendly personality.",
-    image: "/images/home/service-website.png",
+    image: "/images/services/branding-card.png",
     get: ["Logo", "Color and type", "Brand guidelines", "Social media templates"],
   },
   {
@@ -118,7 +118,7 @@ export const services = [
     title: "Website Design",
     summary:
       "I design landing pages and marketing sites in Webflow or Framer that look good, load fast and are easy for you to update yourself.",
-    image: "/images/home/service-marketing.png",
+    image: "/images/services/website-design-card.png",
     get: ["Landing pages", "Marketing sites", "Webflow or Framer", "Responsive layouts"],
   },
 ];

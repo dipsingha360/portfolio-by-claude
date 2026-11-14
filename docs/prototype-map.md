@@ -32,7 +32,7 @@ the same way, except where noted.
 | Page | Element | Target |
 |---|---|---|
 | Projects | every project card | Project detail (OneIELTS) |
-| Services | every service item | Service detail (Product Design) |
+| Services | every service item | Service detail (own text per service, same layout) |
 | Blog | every article card and its "Read article" button | Blog detail |
 
 The prototype only designs one detail page per type, so every card points to

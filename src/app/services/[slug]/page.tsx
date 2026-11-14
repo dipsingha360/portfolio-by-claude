@@ -7,28 +7,30 @@ import { Band, ProcessRow, ProcessStep } from "@/components/CaseStudy";
 import { ContactButton } from "@/components/ContactButton";
 import { Faq } from "@/components/Faq";
 import { SectionHeading } from "@/components/SectionHeading";
-import { primaryDetail, services } from "@/lib/data";
-import { serviceDetail as d } from "@/lib/service-detail";
+import { services } from "@/lib/data";
+import { serviceDetails } from "@/lib/service-detail";
 
-// The Figma prototype designs one service detail (Product Design) and every
-// service item links to it, so each service slug renders that template.
+// The Figma prototype designs one service detail (Product Design). Every
+// service uses that layout with its own text (src/lib/service-detail.ts).
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  if (!services.some((s) => s.slug === slug)) return {};
+  const d = serviceDetails[slug];
+  if (!d) return {};
   return {
     title: d.title,
     description: d.lead,
-    alternates: { canonical: `/services/${primaryDetail.service}` },
+    alternates: { canonical: `/services/${slug}` },
   };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps<"/services/[slug]">) {
   const { slug } = await params;
-  if (!services.some((s) => s.slug === slug)) notFound();
+  const d = serviceDetails[slug];
+  if (!d || !services.some((s) => s.slug === slug)) notFound();
 
   return (
     <>
@@ -47,9 +49,9 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             <p className="text-lead">{d.lead}</p>
           </div>
           <div className="flex flex-col gap-3 md:w-[296px] md:shrink-0">
-            <ContactButton className="w-full">Let’s talk about your product</ContactButton>
-            <Button variant="secondary" href="/projects/oneielts" className="w-full">
-              Read the OneIELTS case study
+            <ContactButton className="w-full">{d.cta.primary}</ContactButton>
+            <Button variant="secondary" href={d.cta.secondaryHref} className="w-full">
+              {d.cta.secondaryLabel}
             </Button>
           </div>
         </div>
@@ -114,7 +116,7 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
             <p className="text-caption text-text-secondary">{d.example.caption}</p>
             <h2 className="text-title">{d.example.title}</h2>
             <p className="text-body text-text-secondary">{d.example.text}</p>
-            <Button href="/projects/oneielts">Read the case study</Button>
+            <Button href={d.example.href}>{d.example.cta}</Button>
           </div>
         </div>
       </Band>
