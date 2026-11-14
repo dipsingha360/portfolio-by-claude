@@ -6,28 +6,49 @@ import { ArticleCard } from "@/components/Cards";
 import { Badge, Band, MetaItem } from "@/components/CaseStudy";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { blogDetail as d } from "@/lib/blog-detail";
-import { articles, primaryDetail } from "@/lib/data";
+import { articleAuthor, articleBodies, articleHero } from "@/lib/blog-detail";
+import { articles } from "@/lib/data";
 
-// The Figma prototype designs one article page and every article card links
-// to it, so each article slug renders that template.
+// The Figma prototype designs one article page; every article uses that layout
+// with its own text (src/lib/blog-detail.ts) and list entry (src/lib/data.ts).
+function getArticle(slug: string) {
+  const a = articles.find((x) => x.slug === slug);
+  const body = articleBodies[slug];
+  if (!a || !body) return null;
+  return {
+    ...body,
+    category: a.category,
+    title: a.title,
+    subtitle: a.summary,
+    hero: articleHero,
+    author: articleAuthor,
+    meta: [
+      { label: "Written by", value: "Dip Singha" },
+      { label: "Published", value: a.date },
+      { label: "Reading time", value: a.readTime },
+    ],
+  };
+}
+
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  if (!articles.some((a) => a.slug === slug)) return {};
+  const d = getArticle(slug);
+  if (!d) return {};
   return {
     title: d.title,
     description: d.subtitle,
-    alternates: { canonical: `/blog/${primaryDetail.article}` },
+    alternates: { canonical: `/blog/${slug}` },
   };
 }
 
 export default async function BlogDetailPage({ params }: PageProps<"/blog/[slug]">) {
   const { slug } = await params;
-  if (!articles.some((a) => a.slug === slug)) notFound();
+  const d = getArticle(slug);
+  if (!d) notFound();
 
   const keepReading = d.keepReading
     .map((s) => articles.find((a) => a.slug === s))

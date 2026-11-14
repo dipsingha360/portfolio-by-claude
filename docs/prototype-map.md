@@ -25,7 +25,7 @@ the same way, except where noted.
 | "See all projects" | Projects |
 | Service items | Service detail (Product Design) |
 | "View all services" | Services |
-| Article cards | Blog detail |
+| Article cards | Blog detail (each article has its own text, same layout) |
 | "Read all articles" | Blog |
 
 ## Lists

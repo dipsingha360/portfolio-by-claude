@@ -188,7 +188,7 @@ export const articles: {
   {
     slug: "design-system-from-scratch",
     date: "Oct 28, 2026",
-    readTime: "5 min read",
+    readTime: "3 min read",
     title: "Building a design system from scratch",
     summary:
       "How I planned, named and documented components so our team could design faster every day.",
@@ -198,7 +198,7 @@ export const articles: {
   {
     slug: "leading-a-design-team",
     date: "Oct 9, 2026",
-    readTime: "5 min read",
+    readTime: "3 min read",
     title: "What I learned leading a team of 4 designers",
     summary:
       "Giving feedback, sharing work fairly and keeping quality high without becoming a bottleneck.",
@@ -208,7 +208,7 @@ export const articles: {
   {
     slug: "ux-copy-as-a-designer",
     date: "Sep 24, 2026",
-    readTime: "4 min read",
+    readTime: "2 min read",
     title: "Writing UX copy as a designer",
     summary:
       "The simple rules I use for buttons, errors and empty states so screens are easier to use.",
@@ -218,7 +218,7 @@ export const articles: {
   {
     slug: "usability-test-in-one-afternoon",
     date: "Sep 10, 2026",
-    readTime: "6 min read",
+    readTime: "2 min read",
     title: "How I run a usability test in one afternoon",
     summary:
       "A light way to test with 5 people, find the biggest problems and fix them before launch.",
@@ -228,7 +228,7 @@ export const articles: {
   {
     slug: "designing-ed-tech-for-test-takers",
     date: "Aug 27, 2026",
-    readTime: "5 min read",
+    readTime: "2 min read",
     title: "Designing ed-tech apps for test takers",
     summary:
       "What I learned designing for students who are stressed, short on time and mostly on their phones.",
@@ -238,7 +238,7 @@ export const articles: {
   {
     slug: "naming-components",
     date: "Aug 12, 2026",
-    readTime: "4 min read",
+    readTime: "2 min read",
     title: "Naming components so your team can find them",
     summary:
       "A naming system for Figma components that designers and developers both understand.",

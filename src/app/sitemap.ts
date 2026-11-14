@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-import { primaryDetail } from "@/lib/data";
+import { articles, primaryDetail } from "@/lib/data";
 import { getSiteUrl } from "@/lib/site-url";
 
-// Lists the pages search engines should index. Project, service and article
-// addresses currently all show the same designed detail page (see
-// primaryDetail in src/lib/data.ts), so only the main one of each is listed.
-// When every item has its own content, list every slug here instead.
+// Lists the pages search engines should index. Every article has its own
+// content. Project and service addresses still show one designed detail page
+// (see primaryDetail in src/lib/data.ts), so only the main one of each is listed.
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = getSiteUrl();
   const url = (path: string) => new URL(path, base).toString();
@@ -29,11 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     { url: url("/blog"), lastModified: now, changeFrequency: "weekly", priority: 0.6 },
-    {
-      url: url(`/blog/${primaryDetail.article}`),
+    ...articles.map((a) => ({
+      url: url(`/blog/${a.slug}`),
       lastModified: now,
-      changeFrequency: "yearly",
+      changeFrequency: "yearly" as const,
       priority: 0.5,
-    },
+    })),
   ];
 }
