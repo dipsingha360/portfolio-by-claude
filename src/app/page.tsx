@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArticleCard, ProjectCard, ServiceItem } from "@/components/Cards";
+import { ResumeButton } from "@/components/ResumeButton";
 import { ReviewCard, VideoTestimonial } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
 import { articles, faqs, projects, reviews, services } from "@/lib/data";
@@ -44,9 +45,7 @@ export default function Home() {
               </p>
             </div>
             <div className="order-3 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button wide href="/resume.pdf" className="w-full sm:w-auto">
-                Download resume
-              </Button>
+              <ResumeButton wide className="w-full sm:w-auto" />
               <Button variant="secondary" href="/projects" className="w-full sm:w-auto">
                 View my projects
               </Button>

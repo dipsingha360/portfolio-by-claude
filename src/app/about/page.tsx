@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Button } from "@/components/Button";
+import { ResumeButton } from "@/components/ResumeButton";
 import { Badge, Band, ProcessRow, ProcessStep, StatCard, TwoColumn } from "@/components/CaseStudy";
 import { ContactButton } from "@/components/ContactButton";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -23,7 +23,7 @@ export default function AboutPage() {
             <p className="text-lead">{a.hero.lead}</p>
             <p className="text-body text-text-secondary">{a.hero.text}</p>
             <div className="flex flex-wrap gap-3">
-              <Button href="/resume.pdf">Download resume</Button>
+              <ResumeButton />
               <ContactButton variant="secondary">Let’s talk</ContactButton>
             </div>
           </div>
