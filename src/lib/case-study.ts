@@ -8,7 +8,7 @@ export const caseStudy = {
   meta: [
     { label: "Role", value: "Lead product designer" },
     { label: "Team", value: "4 designers, 6 developers" },
-    { label: "Timeline", value: "6 months, 2025" },
+    { label: "Timeline", value: "Jan 2024 to Apr 2026" },
     { label: "Platforms", value: "Web, iOS and Android" },
     { label: "Tools", value: "Figma, FigJam" },
   ],

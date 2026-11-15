@@ -28,7 +28,7 @@ export const about = {
     intro: "The short version of how I got here.",
     rows: [
       {
-        number: "[2025] to now",
+        number: "Jan 2024 to now",
         title: "Design Team Lead",
         duration: "Ed-tech company",
         description:
@@ -36,7 +36,7 @@ export const about = {
         deliverables: "Team leadership, design systems, design reviews",
       },
       {
-        number: "[2023] to [2025]",
+        number: "Jan 2024 to now",
         title: "Product Designer",
         duration: "Ed-tech company",
         description:
@@ -44,17 +44,17 @@ export const about = {
         deliverables: "User research, UI design, prototyping",
       },
       {
-        number: "[Year] to [Year]",
+        number: "Jun 2020 to Dec 2023",
         title: "Graphic Designer",
-        duration: "[Company or freelance]",
+        duration: "Aditio and LiiLab, part time",
         description:
           "Designed posters, social media posts and brand assets. This is where I built my eye for layout, type and color.",
         deliverables: "Branding, layout, typography",
       },
       {
-        number: "[Year]",
+        number: "2018 to 2024",
         title: "BSc in Computer Science and Engineering",
-        duration: "[University name]",
+        duration: "Sylhet Engineering College",
         description:
           "Learned how software is built, which still helps me work closely with developers every day.",
         deliverables: "Programming, problem solving",
