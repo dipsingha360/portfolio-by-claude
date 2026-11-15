@@ -15,7 +15,7 @@ the same way, except where noted.
 | Mobile menu "Let's talk ↗" | Contact form (mobile) |
 | Mobile menu close button | Back |
 | Footer LinkedIn / Dribbble / Email, social icons | Not connected in the prototype (external links) |
-| Hero "Download resume" | Not connected in the prototype; opens public/resume.pdf in a new tab and downloads it |
+| Hero "Download resume" | Not connected in the prototype; downloads public/resume.pdf and shows it in a preview modal |
 
 ## Home
 | Element | Target |

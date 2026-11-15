@@ -76,4 +76,4 @@ See [`.env.example`](.env.example).
 - Shared page width and side padding live in `src/lib/layout.ts`; type styles and colors are tokens in `src/app/globals.css`.
 - Page content is currently in `src/lib/*.ts`; moving it to MDX files is planned.
 - This project uses Next.js 16, which differs from older versions. Check `node_modules/next/dist/docs/` before relying on older APIs.
-- The "Download resume" buttons open `public/resume.pdf` in a new tab and download it at the same time. To update your resume, replace that file (keep the name) and push.
+- The "Download resume" buttons download `public/resume.pdf` and show it in a preview modal at the same time. To update your resume, replace that file (keep the name) and push.

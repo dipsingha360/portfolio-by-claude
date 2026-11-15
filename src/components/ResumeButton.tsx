@@ -1,14 +1,12 @@
 "use client";
 
-import type { MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import { buttonClasses } from "./Button";
-
-const FILE = "/resume.pdf";
-const FILE_NAME = "Dip-Singha-Product-Designer-Resume.pdf";
+import { RESUME_FILE, ResumeModal, downloadResume } from "./ResumeModal";
 
 /**
- * "Download resume": one click opens the PDF in a new tab (preview) and also
- * downloads it. Without JavaScript it is a normal link to the PDF.
+ * "Download resume": one click downloads the PDF and shows it in a modal.
+ * Without JavaScript it is a normal link to the PDF.
  */
 export function ResumeButton({
   wide,
@@ -19,29 +17,26 @@ export function ResumeButton({
   className?: string;
   children?: string;
 }) {
+  const [open, setOpen] = useState(false);
+
   function onClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
-    // Both run inside the same click, so browsers do not treat the new tab as a pop-up.
-    const a = document.createElement("a");
-    a.href = FILE;
-    a.download = FILE_NAME;
-    a.style.display = "none";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.open(FILE, "_blank", "noopener");
+    downloadResume();
+    setOpen(true);
   }
 
   return (
-    <a
-      href={FILE}
-      target="_blank"
-      rel="noopener"
-      onClick={onClick}
-      aria-label="Download resume (PDF, also opens a preview in a new tab)"
-      className={buttonClasses("primary", wide, className)}
-    >
-      {children}
-    </a>
+    <>
+      <a
+        href={RESUME_FILE}
+        onClick={onClick}
+        aria-haspopup="dialog"
+        aria-label="Download resume (PDF) and preview it"
+        className={buttonClasses("primary", wide, className)}
+      >
+        {children}
+      </a>
+      <ResumeModal open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }
