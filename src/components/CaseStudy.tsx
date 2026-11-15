@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 /** Centered 1176px content column used by every case-study band. */
@@ -101,6 +102,7 @@ export function ProcessRow({
   number,
   title,
   duration,
+  company,
   description,
   deliverables,
   label = "What you get",
@@ -108,6 +110,8 @@ export function ProcessRow({
   number: string;
   title: string;
   duration: string;
+  /** Optional company mark shown before `duration` (image when `logo` is set, otherwise an initial). */
+  company?: { initials: string; logo?: string };
   description: string;
   deliverables: string;
   label?: string;
@@ -117,7 +121,28 @@ export function ProcessRow({
       <div className="flex flex-col gap-2 md:w-[328px] md:shrink-0">
         <p className="text-caption text-text-secondary">{number}</p>
         <h3 className="text-h3">{title}</h3>
-        <p className="text-caption text-text-secondary">{duration}</p>
+        {company ? (
+          <div className="flex items-center gap-2">
+            <span className="relative flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-surface-subtle bg-action-primary">
+              {company.logo ? (
+                <Image
+                  src={company.logo}
+                  alt=""
+                  fill
+                  sizes="32px"
+                  className="bg-background object-contain p-1"
+                />
+              ) : (
+                <span aria-hidden className="text-label text-text-inverse">
+                  {company.initials}
+                </span>
+              )}
+            </span>
+            <p className="text-caption text-text-secondary">{duration}</p>
+          </div>
+        ) : (
+          <p className="text-caption text-text-secondary">{duration}</p>
+        )}
       </div>
       <div className="flex min-w-0 flex-1 flex-col gap-3">
         <p className="text-body text-text-secondary">{description}</p>

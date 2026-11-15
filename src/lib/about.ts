@@ -1,6 +1,12 @@
 // Content from the Figma "About" frame.
 // Text in [square brackets] is placeholder copy in the design, kept as-is.
 
+// Company marks for the "My journey" rows. Logo files from Dip: the glass shape
+// is Aditio and the red diamond is LiiLab. Until the files are added to
+// public/images/companies/, an initial badge is shown; set `logo` to use the image.
+const liilab = { initials: "L" /* logo: "/images/companies/liilab.png" */ };
+const aditio = { initials: "A" /* logo: "/images/companies/aditio.png" */ };
+
 export const about = {
   hero: {
     eyebrow: "About me",
@@ -31,6 +37,7 @@ export const about = {
         number: "Jan 2024 to now",
         title: "Design Team Lead",
         duration: "LiiLab",
+        company: liilab,
         description:
           "Leading a team of 4 designers, setting design direction and building our design system for web and mobile.",
         deliverables: "Team leadership, design systems, design reviews",
@@ -39,17 +46,28 @@ export const about = {
         number: "Jan 2024 to now",
         title: "Product Designer",
         duration: "LiiLab",
+        company: liilab,
         description:
           "Designed web and mobile apps for students preparing for English tests, from research to final UI.",
         deliverables: "User research, UI design, prototyping",
       },
       {
-        number: "Jun 2020 to Dec 2023",
+        number: "Aug 2022 to Dec 2023",
         title: "Graphic Designer",
-        duration: "Aditio and LiiLab, part time",
+        duration: "LiiLab · Part time",
+        company: liilab,
         description:
-          "Designed posters, social media posts and brand assets. This is where I built my eye for layout, type and color.",
-        deliverables: "Branding, layout, typography",
+          "Designed logos and brand identities, social media posts, thumbnails for YouTube, blogs and course videos, app screenshots for the Play Store and App Store, and Google Ads marketing assets.",
+        deliverables: "Branding, social media, app store screenshots, ad assets",
+      },
+      {
+        number: "Jun 2020 to Aug 2022",
+        title: "Graphic Designer",
+        duration: "Aditio · Part time",
+        company: aditio,
+        description:
+          "Worked for multiple clients on social media posts, ad banners, print and flyer designs, logos and brand identities. This is where I built my eye for layout, type and color.",
+        deliverables: "Social media, ad banners, print, logos",
       },
       {
         number: "2018 to 2024",
