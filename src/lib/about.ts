@@ -30,7 +30,7 @@ export const about = {
       {
         number: "Jan 2024 to now",
         title: "Design Team Lead",
-        duration: "Ed-tech company",
+        duration: "LiiLab",
         description:
           "Leading a team of 4 designers, setting design direction and building our design system for web and mobile.",
         deliverables: "Team leadership, design systems, design reviews",
@@ -38,7 +38,7 @@ export const about = {
       {
         number: "Jan 2024 to now",
         title: "Product Designer",
-        duration: "Ed-tech company",
+        duration: "LiiLab",
         description:
           "Designed web and mobile apps for students preparing for English tests, from research to final UI.",
         deliverables: "User research, UI design, prototyping",
