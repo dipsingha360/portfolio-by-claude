@@ -9,10 +9,12 @@ import { RESUME_FILE, ResumeModal, downloadResume } from "./ResumeModal";
  * Without JavaScript it is a normal link to the PDF.
  */
 export function ResumeButton({
+  variant = "primary",
   wide,
   className = "",
   children = "Download resume",
 }: {
+  variant?: "primary" | "secondary";
   wide?: boolean;
   className?: string;
   children?: string;
@@ -32,7 +34,7 @@ export function ResumeButton({
         onClick={onClick}
         aria-haspopup="dialog"
         aria-label="Download resume (PDF) and preview it"
-        className={buttonClasses("primary", wide, className)}
+        className={buttonClasses(variant, wide, className)}
       >
         {children}
       </a>

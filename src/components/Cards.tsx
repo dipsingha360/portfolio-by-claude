@@ -42,50 +42,6 @@ export function ProjectCard({
   );
 }
 
-/** Figma: Molecules / Service item. */
-export function ServiceItem({
-  level = 3,
-  index,
-  slug,
-  title,
-  summary,
-  image,
-}: {
-  /** Heading level of the title: 2 on list pages, 3 inside a section. */
-  level?: 2 | 3;
-  index: number;
-  slug: string;
-  title: string;
-  summary: string;
-  image: string;
-}) {
-  const Heading = level === 2 ? "h2" : "h3";
-  return (
-    <Link
-      href={`/services/${slug}`}
-      className="group flex flex-col gap-4 border border-surface-subtle bg-background p-6 transition-colors hover:bg-surface md:flex-row md:gap-6"
-    >
-      <div className="flex min-w-0 flex-1 flex-col gap-3">
-        <span className="text-caption">{String(index + 1).padStart(2, "0")}</span>
-        <Heading className="text-h3">{title}</Heading>
-        <p className="text-body text-text-secondary">{summary}</p>
-        <span className="text-label opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
-          View service &nbsp;→
-        </span>
-      </div>
-      <div className="relative h-[120px] min-w-0 shrink-0 overflow-hidden md:flex-1 md:self-start">
-        <Image
-          src={image}
-          alt=""
-          fill
-          sizes="(min-width: 1024px) 604px, 100vw"
-          className="object-cover"
-        />
-      </div>
-    </Link>
-  );
-}
-
 /** Figma: Molecules / Article card. */
 export function ArticleCard({
   level = 3,

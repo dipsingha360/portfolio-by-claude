@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Button } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
-import { ArticleCard, ProjectCard, ServiceItem } from "@/components/Cards";
+import { ArticleCard, ProjectCard } from "@/components/Cards";
+import { HowIWorkSection } from "@/components/HowIWorkSection";
 import { ResumeButton } from "@/components/ResumeButton";
 import { ReviewCard, VideoTestimonial } from "@/components/Reviews";
 import { Faq } from "@/components/Faq";
-import { articles, faqs, projects, reviews, services } from "@/lib/data";
+import { articles, faqs, projects, reviews } from "@/lib/data";
 import { bandPadding, container } from "@/lib/layout";
 
 export const metadata: Metadata = {
@@ -80,20 +81,9 @@ export default function Home() {
         </Button>
       </Section>
 
-      {/* Services */}
+      {/* How I work */}
       <Section>
-        <SectionHeading
-          title="How I can help"
-          intro="Whether you’re hiring for your team or need a hand on a project, here’s where I add the most value."
-        />
-        <div className="flex w-full flex-col gap-4 md:gap-6">
-          {services.map((s, i) => (
-            <ServiceItem key={s.slug} index={i} {...s} />
-          ))}
-        </div>
-        <Button variant="secondary" href="/services">
-          View all services
-        </Button>
+        <HowIWorkSection />
       </Section>
 
       {/* Client reviews */}

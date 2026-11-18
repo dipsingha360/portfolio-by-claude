@@ -240,8 +240,14 @@ export function ContactProvider({ children }: { children: ReactNode }) {
                 type="submit"
                 aria-busy={step === "sending"}
                 disabled={step === "sending"}
-                className="text-label h-12 shrink-0 cursor-pointer rounded-control bg-action-primary px-5 text-text-inverse disabled:cursor-wait disabled:opacity-70"
+                className="text-label inline-flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-control bg-action-primary px-5 text-text-inverse disabled:cursor-wait disabled:opacity-70"
               >
+                {step === "sending" && (
+                  <span
+                    aria-hidden
+                    className="size-4 animate-spin rounded-full border-2 border-current border-t-transparent motion-reduce:animate-none"
+                  />
+                )}
                 {step === "sending" ? "Sending…" : "Send message"}
               </button>
             </div>

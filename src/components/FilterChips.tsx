@@ -26,7 +26,7 @@ export function FilterChips<T extends string>({
             type="button"
             aria-pressed={selected}
             onClick={() => onChange(f)}
-            className={`text-caption flex h-9 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-4 transition-colors ${
+            className={`text-caption flex h-11 cursor-pointer items-center justify-center whitespace-nowrap rounded-full px-4 transition-colors ${
               selected
                 ? "bg-action-primary text-text-inverse"
                 : "bg-surface text-text-primary hover:bg-surface-subtle"

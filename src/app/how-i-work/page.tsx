@@ -1,62 +1,41 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
 import { Band, ProcessRow, ProcessStep } from "@/components/CaseStudy";
 import { ContactButton } from "@/components/ContactButton";
 import { Faq } from "@/components/Faq";
+import { ResumeButton } from "@/components/ResumeButton";
 import { SectionHeading } from "@/components/SectionHeading";
-import { services } from "@/lib/data";
-import { serviceDetails } from "@/lib/service-detail";
+import { howIWork as d } from "@/lib/how-i-work";
 
-// The Figma prototype designs one service detail (Product Design). Every
-// service uses that layout with its own text (src/lib/service-detail.ts).
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
-}
+export const metadata: Metadata = {
+  title: { absolute: "How I work | Dip Singha" },
+  description:
+    "How Dip Singha works as a product designer, from research and flows to design systems and developer handoff.",
+  alternates: { canonical: "/how-i-work" },
+};
 
-export async function generateMetadata({ params }: PageProps<"/services/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
-  const d = serviceDetails[slug];
-  if (!d) return {};
-  return {
-    title: d.title,
-    description: d.lead,
-    alternates: { canonical: `/services/${slug}` },
-  };
-}
-
-export default async function ServiceDetailPage({ params }: PageProps<"/services/[slug]">) {
-  const { slug } = await params;
-  const d = serviceDetails[slug];
-  if (!d || !services.some((s) => s.slug === slug)) notFound();
-
+// Figma: How I work (Desktop 113:1773, Mobile 115:2794).
+export default function HowIWorkPage() {
   return (
     <>
       {/* Hero */}
       <section className="mx-auto flex w-full max-w-[1176px] flex-col gap-8 px-6 pb-12 pt-12 md:pb-16 xl:px-0">
-        <Link
-          href="/services"
-          className="text-label flex min-h-[52px] w-fit items-center hover:underline hover:underline-offset-8 md:min-h-touch"
-        >
-          ←&nbsp;&nbsp;All services
-        </Link>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:gap-16">
           <div className="flex min-w-0 flex-1 flex-col gap-4">
-            <p className="text-caption text-text-secondary">{d.eyebrow}</p>
-            <h1 className="text-h2">{d.title}</h1>
-            <p className="text-lead">{d.lead}</p>
+            <p className="text-caption text-text-secondary">{d.hero.eyebrow}</p>
+            <h1 className="text-h2">{d.hero.title}</h1>
+            <p className="text-lead">{d.hero.lead}</p>
           </div>
           <div className="flex flex-col gap-3 md:w-[296px] md:shrink-0">
-            <ContactButton className="w-full">{d.cta.primary}</ContactButton>
-            <Button variant="secondary" href={d.cta.secondaryHref} className="w-full">
-              {d.cta.secondaryLabel}
+            <Button href="/projects/oneielts" className="w-full">
+              Read the OneIELTS case study
             </Button>
+            <ResumeButton variant="secondary" className="w-full" />
           </div>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
-          {d.images.map((src) => (
+          {d.hero.images.map((src) => (
             <div key={src} className="relative h-[257px] overflow-hidden max-md:nth-[n+2]:hidden md:h-[300px]">
               <Image
                 src={src}
@@ -71,36 +50,26 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </div>
       </section>
 
-      {/* Who this is for */}
-      <Band tone="surface" className="flex flex-col gap-12">
-        <SectionHeading wide title={d.whoFor.title} intro={d.whoFor.intro} />
-        <div className="grid gap-6 md:grid-cols-3">
-          {d.whoFor.cards.map((c) => (
-            <ProcessStep key={c.title} {...c} />
-          ))}
-        </div>
-      </Band>
-
-      {/* What's included */}
+      {/* What I bring to a team */}
       <Band className="flex flex-col gap-12">
-        <SectionHeading wide title={d.included.title} intro={d.included.intro} />
+        <SectionHeading wide title={d.bring.title} intro={d.bring.intro} />
         <div className="grid gap-6 md:grid-cols-3">
-          {d.included.cards.map((c) => (
+          {d.bring.cards.map((c) => (
             <ProcessStep key={c.number} {...c} />
           ))}
         </div>
       </Band>
 
-      {/* How I work, step by step */}
+      {/* My process, step by step */}
       <Band tone="surface" className="flex flex-col gap-6">
         <SectionHeading wide title={d.process.title} intro={d.process.intro} />
         <div className="h-6" aria-hidden />
         {d.process.rows.map((r) => (
-          <ProcessRow key={r.number} {...r} />
+          <ProcessRow key={r.number} {...r} label="What comes out of it" />
         ))}
       </Band>
 
-      {/* Example project */}
+      {/* See it in action */}
       <Band>
         <div className="flex flex-col items-center gap-8 lg:flex-row lg:gap-16">
           <div className="relative h-[280px] w-full shrink-0 overflow-hidden md:h-[400px] lg:w-[560px]">
@@ -121,15 +90,21 @@ export default async function ServiceDetailPage({ params }: PageProps<"/services
         </div>
       </Band>
 
-      {/* Ways to work together */}
-      <Band tone="surface" className="flex flex-col gap-12">
-        <SectionHeading wide title={d.ways.title} intro={d.ways.intro} />
-        <div className="grid gap-6 md:grid-cols-3">
-          {d.ways.cards.map((c) => (
+      {/* Work with me */}
+      {/* Anchor for the footer's "Work with me" link. The sticky navbar offset comes
+          from the site-wide scroll-padding-top (96px) in globals.css, so no extra
+          scroll-margin is added here (it would double the gap). */}
+      <div id="work-with-me">
+      <Band tone="surface" className="flex flex-col items-center gap-12">
+        <SectionHeading wide title={d.workWithMe.title} intro={d.workWithMe.intro} />
+        <div className="grid w-full gap-6 md:grid-cols-3">
+          {d.workWithMe.cards.map((c) => (
             <ProcessStep key={c.number} {...c} />
           ))}
         </div>
+        <ContactButton className="w-full md:w-auto">Let’s talk</ContactButton>
       </Band>
+      </div>
 
       {/* FAQ */}
       <Band className="flex flex-col gap-12">

@@ -31,13 +31,14 @@ export function Footer() {
               <p className="text-caption text-text-secondary">Explore</p>
               <Link href="/" className={linkCls}>Home</Link>
               <Link href="/projects" className={linkCls}>Projects</Link>
-              <Link href="/services" className={linkCls}>Services</Link>
+              <Link href="/how-i-work" className={linkCls}>How I work</Link>
               <Link href="/about" className={linkCls}>About</Link>
             </nav>
             <nav aria-label="More" className="flex flex-col gap-2 md:gap-1">
               <p className="text-caption text-text-secondary">More</p>
               <Link href="/blog" className={linkCls}>Blog</Link>
               <ContactLink className={`${linkCls} cursor-pointer`}>Contact</ContactLink>
+              <Link href="/how-i-work#work-with-me" className={linkCls}>Work with me</Link>
             </nav>
           </div>
           <nav aria-label="Connect" className="flex flex-col gap-2 md:gap-1">

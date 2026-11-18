@@ -6,7 +6,7 @@ export const site = {
   nav: [
     { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
-    { label: "Services", href: "/services" },
+    { label: "How I work", href: "/how-i-work" },
     { label: "About", href: "/about" },
     { label: "Blog", href: "/blog" },
   ],
@@ -18,13 +18,12 @@ export const site = {
   ],
 };
 
-// The prototype designs ONE detail page per type, and every card opens it, so
-// all project/service/article addresses currently show the same content. Search
-// engines are pointed at these main pages (canonical links and the sitemap)
-// until each item has its own content.
+// The prototype designs ONE project detail page, and every project card opens
+// it, so all project addresses currently show the same content. Search engines
+// are pointed at the main one (canonical links and the sitemap) until each
+// project has its own content.
 export const primaryDetail = {
   project: "oneielts",
-  service: "product-design",
   article: "graphic-to-product-design",
 } as const;
 
@@ -85,41 +84,6 @@ export const projects: {
     tags: "Product Design · Web App",
     image: "/images/projects/graphora.png",
     categories: ["Product Design"],
-  },
-];
-
-export const services = [
-  {
-    slug: "product-design",
-    title: "Product Design",
-    summary:
-      "I design web and mobile apps from first idea to final handoff. That means user research, flows, wireframes, prototypes and clean UI your developers can actually build.",
-    image: "/images/services/product-design-card.jpg",
-    get: ["User research", "User flows", "Wireframes", "Prototypes", "UI design", "Developer handoff"],
-  },
-  {
-    slug: "design-systems",
-    title: "Design Systems",
-    summary:
-      "I build Figma design systems that keep your product consistent and help your team ship faster: tokens, components and clear docs that designers and developers both use.",
-    image: "/images/services/design-systems-card.jpg",
-    get: ["Design tokens", "Component library", "Figma variables", "Documentation"],
-  },
-  {
-    slug: "branding",
-    title: "Branding & Visual Identity",
-    summary:
-      "My roots are in graphic design. I create logos, colors, type and brand guidelines that give your product a clear and friendly personality.",
-    image: "/images/services/branding-card.jpg",
-    get: ["Logo", "Color and type", "Brand guidelines", "Social media templates"],
-  },
-  {
-    slug: "website-design",
-    title: "Website Design",
-    summary:
-      "I design landing pages and marketing sites in Webflow or Framer that look good, load fast and are easy for you to update yourself.",
-    image: "/images/services/website-design-card.jpg",
-    get: ["Landing pages", "Marketing sites", "Webflow or Framer", "Responsive layouts"],
   },
 ];
 

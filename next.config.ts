@@ -4,6 +4,13 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  async redirects() {
+    // "Services" was replaced by "How I work"; keep old links and search results working.
+    return [
+      { source: "/services", destination: "/how-i-work", permanent: true },
+      { source: "/services/:slug*", destination: "/how-i-work", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
